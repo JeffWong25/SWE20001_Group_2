@@ -5,5 +5,8 @@
 </head>
 <body>
     <h1>Products</h1>
+    <?php
+        
+    ?>
 </body>
 </html>
