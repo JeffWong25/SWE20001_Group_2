@@ -4,10 +4,11 @@
     <meta charset="utf-8" />
     <title>BurgerBytes Menu</title>
 </head>
-<body>
+<body class="index1">
     <h1>Products</h1>
-    <?php
+    <div class="header1">
         
-    ?>
+    </div>
+    
 </body>
 </html>
