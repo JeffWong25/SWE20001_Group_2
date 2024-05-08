@@ -1,5 +1,5 @@
 <?php
-$host="localhost:3307";
+$host="localhost";
 $user="root";
 $pwd="";
 $sql_db="sweproject_db";
