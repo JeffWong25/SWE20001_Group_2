@@ -22,10 +22,10 @@
         echo "<thead>";
             echo "<tr>";
                 echo "<th>Item ID</th>";
-                echo "<th'>Item Name</th>";
+                echo "<th>Item Name</th>";
                 echo "<th>Image</th>"; 
-                echo "<th'>Description</th>";
-                echo "<th'>Price</th>";
+                echo "<th>Description</th>";
+                echo "<th>Price</th>";
             echo "</tr>";
         echo "</thead>";
         echo "<tbody>";
