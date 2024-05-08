@@ -7,11 +7,6 @@
 <body class="index1">
     <h1>Products</h1>
     <div class="header1">
-    <style>
-        #menuTable th {
-            text-align: left; /* Align text in table headers to the left */
-        }
-    </style>
     <?php
         //connect to database based on credentials in settings.php
         require_once("settings.php");
