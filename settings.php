@@ -1,6 +1,6 @@
 <?php
 $host="localhost";
-$user="pma";
+$user="root";
 $pwd="";
 $sql_db="sweproject_db";
 ?>
