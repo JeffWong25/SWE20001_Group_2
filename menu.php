@@ -10,7 +10,7 @@
     <?php
         //connect to database based on credentials in settings.php
         require_once("settings.php");
-        $dbconn = @mysqli_connect("localhost", "username", "password", "database");
+        $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
         if (!$dbconn) {
             die("Connection failed: " . mysqli_connect_error());
         }
