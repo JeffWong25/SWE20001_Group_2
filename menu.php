@@ -21,11 +21,11 @@
         echo "<table id='menuTable' border='1'>";
         echo "<thead>";
         echo "<tr>";
-        echo "<th>Item ID</th>";
-        echo "<th'>Item Name</th>";
-        echo "<th>Image</th>"; 
-        echo "<th'>Description</th>";
-        echo "<th'>Price</th>";
+        echo "<tr>Item ID</tr>";
+        echo "<tr'>Item Name</tr>";
+        echo "<tr>Image</tr>"; 
+        echo "<tr'>Description</tr>";
+        echo "<tr'>Price</tr>";
         echo "</tr>";
         echo "</thead>";
         echo "<tbody>";
