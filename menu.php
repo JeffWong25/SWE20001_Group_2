@@ -31,13 +31,13 @@
         echo "<tbody>";
 
         while ($row=mysqli_fetch_assoc($result)){
-                echo "<tr>";
-                echo "<td>" . $row['item_id'] . "</td>";
-                echo "<td>" . $row['item_name'] . "</td>";
-                echo "<td><img src='" . $row['imgpath'] . "'alt='" . $row['item_name'] . "'style='width: 90px; height: auto;'></td>"; // Display the image
-                echo "<td>" . $row['desc'] . "</td>";
-                echo "<td>" . $row['price'] . "</td>";
-                echo "</tr>";
+            echo "<tr>";
+            echo "<td>" . $row['item_id'] . "</td>";
+            echo "<td>" . $row['item_name'] . "</td>";
+            echo "<td><img src='" . $row['imgpath'] . "'alt='" . $row['item_name'] . "'style='width: 90px; height: auto;'></td>"; // Display the image
+            echo "<td>" . $row['desc'] . "</td>";
+            echo "<td>" . $row['price'] . "</td>";
+            echo "</tr>";
         }
         echo "</tbody>";
         echo "</table>";
