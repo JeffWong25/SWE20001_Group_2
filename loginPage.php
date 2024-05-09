@@ -9,7 +9,7 @@
         <title>Log In</title>
     </head>
 
-    <body>
+    <body class="login-body">
 
     <div class="login-box" method="post">
         <h2>Log In</h2>
