@@ -10,7 +10,7 @@
         <div class="navigation">
            <a href="#" onclick="filterTable(1)">Category 1</a>
             <a href="#" onclick="filterTable(2)">Category 2</a>
-            <a href="#" onclick="filterTable(2)">Category 3</a>
+            <a href="#" onclick="filterTable(3)">Category 3</a>
         </div>
     <?php
         //connect to database based on credentials in settings.php
