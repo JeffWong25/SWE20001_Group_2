@@ -4,14 +4,11 @@ function filterTable(categoryId) {
     table = document.getElementById("menuTable");
     rows = table.getElementsByTagName("tr");
     for (i = 1; i < rows.length; i++) {
-        categoryCell = rows[i].getElementsByTagName("td")[5]; // Index 5 is the category ID column
-        if (categoryCell) {
-            categoryValue = categoryCell.textContent || categoryCell.innerText;
-            if (parseInt(categoryValue) === categoryId) {
-                rows[i].style.display = "";
-            } else {
-                rows[i].style.display = "none";
-            }
+        categoryValue = rows[i].getAttribute("data-category");
+        if (categoryValue === String(categoryId)) {
+            rows[i].style.display = "";
+        } else {
+            rows[i].style.display = "none";
         }
     }
 }

@@ -32,18 +32,16 @@
                 echo "<th>Image</th>"; 
                 echo "<th>Description</th>";
                 echo "<th>Price</th>";
-                echo "<th>Category ID</th>";
             echo "</tr>";
         echo "</thead>";
         echo "<tbody>";
         while ($row=mysqli_fetch_assoc($result)){
-            echo "<tr>";
+            echo "<tr data-category='" . $row['category_id'] . "'>";
             echo "<td>" . $row['item_id'] . "</td>";
             echo "<td>" . $row['item_name'] . "</td>";
             echo "<td><img src='" . $row['imgpath'] . "'alt='" . $row['item_name'] . "'style='width: 90px; height: auto;'></td>"; // Display the image
             echo "<td>" . $row['desc'] . "</td>";
             echo "<td>" . $row['price'] . "</td>";
-            echo "<td>" . $row['category_id'] . "</td>";
             echo "</tr>";
         }
         echo "</tbody>";    
