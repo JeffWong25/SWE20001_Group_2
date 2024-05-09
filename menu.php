@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <title>BurgerBytes Menu</title>
-    <script src="menu.js"></script>
+    <script src="scripts/menu.js"></script>
 </head>
 <body class="index1">
     <h1>Products</h1>
     <div class="header1">
         <div class="navigation">
-           <a href="#" onclick="filterTable(1)">Category 1</a>
+            <a href="#" onclick="filterTable(1)">Category 1</a>
             <a href="#" onclick="filterTable(2)">Category 2</a>
             <a href="#" onclick="filterTable(3)">Category 3</a>
         </div>
