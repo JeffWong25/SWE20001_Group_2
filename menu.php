@@ -8,9 +8,9 @@
     <h1>Products</h1>
     <div class="header1">
         <div class="navigation">
-            <button onclick="filterTable(1)">Burgers</button>
-            <button onclick="filterTable(2)">Side Dishes</button>
-            <button onclick="filterTable(3)">Drinks</button>
+           <a href="#" onclick="filterTable(1)">Category 1</a>
+            <a href="#" onclick="filterTable(2)">Category 2</a>
+            <a href="#" onclick="filterTable(2)">Category 3</a>
         </div>
     <?php
         //connect to database based on credentials in settings.php
