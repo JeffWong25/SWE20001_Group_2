@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
+<head class="bg">
+    <?php include 'header.php'?>
     <title>BurgerBytes Menu</title>
     <script src="scripts/menu.js"></script>
 </head>
 <body class="index1">
-    <h1>Products</h1>
+    <h1>BurgerBytes Products</h1>
     <div class="header1">
         <div class="navigation">
             <a href="#" onclick="filterTable(1)">Category 1</a>
