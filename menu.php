@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>BurgerBytes Menu</title>
+    <script src="menu.js"></script>
 </head>
 <body class="index1">
     <h1>Products</h1>
@@ -50,23 +51,5 @@
         mysqli_close($dbconn);
     ?>  
     </div>
-<script>
-    function filterTable(categoryId) {
-    var table, rows, i, categoryCell, categoryValue;
-    table = document.getElementById("menuTable");
-    rows = table.getElementsByTagName("tr");
-    for (i = 1; i < rows.length; i++) {
-        categoryCell = rows[i].getElementsByTagName("td")[5]; // Index 5 is the category ID column
-        if (categoryCell) {
-            categoryValue = categoryCell.textContent || categoryCell.innerText;
-            if (parseInt(categoryValue) === categoryId) {
-                rows[i].style.display = "";
-            } else {
-                rows[i].style.display = "none";
-            }
-        }
-    }
-}
-</script>
 </body>
 </html>
