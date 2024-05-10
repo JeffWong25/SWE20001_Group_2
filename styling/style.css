@@ -1,12 +1,42 @@
-/*universal styling*/
+/* for menu page*/
+.menu-body {
+    font-family: sans-serif;
+    background: linear-gradient(45deg, #F81B15, #FDC400);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
 
+.menu-table{
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+    margin-left: 5%; margin-right: 5%; font-size: 1.4vw; 
+    background-color: white
+}
 
+.menu-table-head {
+    background-color: #f2f2f2;
+}
+
+.menu-table th, .menu-table td {
+    padding: 8px;
+    border: 1px solid #dddddd;
+    text-align: left;
+}
+
+.menu-table td img {
+    max-width: 90px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 /* For Log In and Sign Up Page*/
 .login-body {
     font-family: sans-serif;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(45deg, #F81B15, #FDC400);
+    background-image: url(../images/burgerbackground.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
