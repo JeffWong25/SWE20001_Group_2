@@ -1,6 +1,5 @@
-"use strict";
 function filterTable(categoryId) {
-    var table, rows, i, categoryCell, categoryValue;
+    var table, rows, i, categoryValue;
     table = document.getElementById("menuTable");
     rows = table.getElementsByTagName("tr");
     for (i = 1; i < rows.length; i++) {
