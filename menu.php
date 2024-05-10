@@ -12,9 +12,9 @@
     <h1>BurgerBytes Products</h1>
     <div>
         <div class="menu-nav">
-            <a href="#" onclick="filterTable(1)">Category 1</a>
-            <a href="#" onclick="filterTable(2)">Category 2</a>
-            <a href="#" onclick="filterTable(3)">Category 3</a>
+            <a href="#" onclick="filterTable(1)">Burgers</a>
+            <a href="#" onclick="filterTable(2)">Side Dishes</a>
+            <a href="#" onclick="filterTable(3)">Beverages</a>
         </div>
     <?php
         //connect to database based on credentials in settings.php
@@ -27,7 +27,7 @@
         $result = mysqli_query($dbconn, $sql);
 
         //generate table
-        echo "<table class='menu-table' border='1'>";
+        echo "<table id='menu-table' class='menu-table' border='1'>";
         echo "<thead class='menu-table-head'>";
             echo "<tr>";
                 echo "<th>Item ID</th>";
