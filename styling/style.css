@@ -27,6 +27,12 @@
     text-align: left;
 }
 
+.menu-table td img {
+    max-width: 90px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 /* For Log In and Sign Up Page*/
 .login-body {
     font-family: sans-serif;
