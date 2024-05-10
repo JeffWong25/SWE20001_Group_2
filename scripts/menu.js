@@ -1,6 +1,6 @@
 function filterTable(categoryId) {
     var table, rows, i, categoryValue;
-    table = document.getElementsByClassName("menu-table");
+    table = document.getElementByClass("menu-table");
     rows = table.getElementsByTagName("tr");
     for (i = 1; i < rows.length; i++) {
         categoryValue = rows[i].getAttribute("data-category");
