@@ -1,5 +1,14 @@
 /*universal styling*/
 
+/* for menu page*/
+.menu-body {
+    font-family: sans-serif;
+    background: linear-gradient(45deg, #F81B15, #FDC400);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
 
 /* For Log In and Sign Up Page*/
 .login-body {
