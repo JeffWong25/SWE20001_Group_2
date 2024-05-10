@@ -28,7 +28,7 @@
 
         //generate table
         echo "<table class='menu-table' border='1'>";
-        echo "<thead class='menu-table-head'>";
+        echo "<thead>";
             echo "<tr>";
                 echo "<th>Item ID</th>";
                 echo "<th>Item Name</th>";
