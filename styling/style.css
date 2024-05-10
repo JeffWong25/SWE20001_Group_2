@@ -21,6 +21,12 @@
     background-color: #f2f2f2;
 }
 
+.menu-table th, .menu-table td {
+    padding: 8px;
+    border: 1px solid #dddddd;
+    text-align: left;
+}
+
 /* For Log In and Sign Up Page*/
 .login-body {
     font-family: sans-serif;
