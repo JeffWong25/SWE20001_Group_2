@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<div class ="menu-whole-page">
 <head class="bg"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,9 @@
     <script src="scripts/menu.js"></script>
 </head>
 <body class="menu-body">
-    <h1>BurgerBytes Products</h1>
+    <div class="menu-header">
+        <h1>BurgerBytes Products</h1>
+    </div>
     <div>
         <div class="menu-nav">
             <a href="#" onclick="filterTable(1)">Burgers</a>
@@ -53,4 +56,5 @@
     ?>  
     </div>
 </body>
+    </div>
 </html>

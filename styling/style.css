@@ -1,4 +1,11 @@
 /* for menu page*/
+.menu-header{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    background-color: red;
+    padding-left: 5%;
+}
 .menu-body {
     font-family: sans-serif;
     background: linear-gradient(45deg, #F81B15, #FDC400);
@@ -6,6 +13,8 @@
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
+    margin: 0;
+    padding: 0;
 }
 
 .menu-nav {
