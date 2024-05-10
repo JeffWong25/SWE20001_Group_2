@@ -13,7 +13,7 @@
     <div>
         <div class="menu-nav">
             <a href="#" onclick="filterTable(1)">Burgers</a>
-            <a href="#" onclick="filterTable(2)">Side Dishes 2</a>
+            <a href="#" onclick="filterTable(2)">Side Dishes</a>
             <a href="#" onclick="filterTable(3)">Beverages</a>
         </div>
     <?php
