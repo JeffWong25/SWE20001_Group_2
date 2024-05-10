@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head class="bg">
+<head class="bg"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include 'header.php'?>
     <title>BurgerBytes Menu</title>
+    <link rel="stylesheet" href="styling/style.css">
     <script src="scripts/menu.js"></script>
 </head>
-<body class="index1">
+<body class="menu-body">
     <h1>BurgerBytes Products</h1>
-    <div class="header1">
-        <div class="navigation">
+    <div>
+        <div class="menu-nav">
             <a href="#" onclick="filterTable(1)">Category 1</a>
             <a href="#" onclick="filterTable(2)">Category 2</a>
             <a href="#" onclick="filterTable(3)">Category 3</a>
@@ -24,7 +27,7 @@
         $result = mysqli_query($dbconn, $sql);
 
         //generate table
-        echo "<table id='menuTable' border='1'>";
+        echo "<table class='menuTable' border='1'>";
         echo "<thead>";
             echo "<tr>";
                 echo "<th>Item ID</th>";
