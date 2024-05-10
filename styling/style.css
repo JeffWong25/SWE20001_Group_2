@@ -17,6 +17,10 @@
     background-color: white
 }
 
+.menu-table-head {
+    background-color: #f2f2f2;
+}
+
 /* For Log In and Sign Up Page*/
 .login-body {
     font-family: sans-serif;
