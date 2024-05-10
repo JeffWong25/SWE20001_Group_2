@@ -11,7 +11,9 @@
 }
 
 .menu-table{
-    border: 7px groove maroon; 
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+    width: 100%;
     margin-left: 5%; margin-right: 5%; font-size: 1.4vw; 
     background-color: white
 }
