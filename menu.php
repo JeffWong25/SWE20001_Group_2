@@ -3,6 +3,7 @@
 <head class="bg">
     <?php include 'header.php'?>
     <title>BurgerBytes Menu</title>
+    <link rel="stylesheet" href="styling/style.css">
     <script src="scripts/menu.js"></script>
 </head>
 <body class="index1">
