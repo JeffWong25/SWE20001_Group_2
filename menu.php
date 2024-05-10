@@ -27,7 +27,7 @@
         $result = mysqli_query($dbconn, $sql);
 
         //generate table
-        echo "<table class='menuTable' border='1'>";
+        echo "<table class='menu-table' border='1'>";
         echo "<thead>";
             echo "<tr>";
                 echo "<th>Item ID</th>";
