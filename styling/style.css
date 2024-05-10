@@ -10,6 +10,12 @@
     position: relative;
 }
 
+.menu-table{
+    border: 7px groove maroon; 
+    margin-left: 5%; font-size: 2.7vw; 
+    background-color: white
+}
+
 /* For Log In and Sign Up Page*/
 .login-body {
     font-family: sans-serif;
