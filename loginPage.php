@@ -31,7 +31,7 @@
 
 
         <?php
-$servername = "localhost:4306"; // Change this to your MySQL server address
+$servername = "localhost:3307"; // Change this to your MySQL server address
 $username = "root"; // Change this to your MySQL username
 $password = ""; // Change this to your MySQL password
 $database = "sweproject_db"; // Change this to your MySQL database name
