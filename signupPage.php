@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--CSS-->
     <link rel="stylesheet" href="styling/style.css">
     <script src="scripts/loginSignupValidation.js"></script>
     <title>Register Account</title>
@@ -14,8 +12,8 @@
 <div class="login-box">
     <h2>Register</h2>
 
-    <form action="loginPage.php" method="post" onsubmit="return validateForm()">
-
+    <form action="process-signup.php" method="post" onsubmit="return validateForm()">
+    <!--onsubmit used for client side validation-->
         <div class="input-box">
             <input type="text" name="fname" id="fname" placeholder="First Name" required>
         </div>
