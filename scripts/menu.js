@@ -11,3 +11,12 @@ function filterTable(categoryId) {
         }
     }
 }
+
+function resetTable() {
+    var table, rows, i;
+    table = document.getElementById("menu-table");
+    rows = table.getElementsByTagName("tr");
+    for (i = 0; i < rows.length; i++) {
+        rows[i].style.display = ""; // Reset display of all rows
+    }
+}
