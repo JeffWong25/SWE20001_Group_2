@@ -18,6 +18,7 @@
             <a href="#" onclick="filterTable(1)">Burgers</a>
             <a href="#" onclick="filterTable(2)">Side Dishes</a>
             <a href="#" onclick="filterTable(3)">Beverages</a>
+            <a href="#" onclick="resetTable()">Reset</a>
         </div>
     <?php
         //connect to database based on credentials in settings.php
