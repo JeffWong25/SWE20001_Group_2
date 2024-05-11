@@ -6,6 +6,7 @@
 
     <!--CSS-->
     <link rel="stylesheet" href="styling/style.css">
+    <script src="scripts/loginSignupValidation.js"></script>
     <title>Register Account</title>
 </head>
 
@@ -13,53 +14,29 @@
 <div class="login-box">
     <h2>Register</h2>
 
-    <!--JS Validation for user registration details -->
-    <!-- Checks username, email regex, and reconfirms password entered-->
-    <script>
-        function validateForm() {
-            var user = document.getElementById("username").value;
-            var email = document.getElementById("email").value;
-            var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirm-password").value;
-            var passwordErrorMessage = document.getElementById("password-error-message");
-            var userErrorMessage = document.getElementById("user-error-message");
-            var emailErrorMessage = document.getElementById("email-error-message");
-
-            // Regular expression for user (5 to 20 alphabets or digits)
-            var userRegex = /^[a-zA-Z0-9]{5,20}$/;
-            // Regular expression for email
-            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            if (!user.match(userRegex)) {
-                userErrorMessage.innerHTML = "Please enter a valid User Id (5 to 20 alphabets or digits)";
-                return false;
-            } else {
-                userErrorMessage.innerHTML = "";
-            }
-
-            if (!email.match(emailRegex)) {
-                emailErrorMessage.innerHTML = "Please enter a valid email address";
-                return false;
-            } else {
-                emailErrorMessage.innerHTML = "";
-            }
-
-            if (password != confirmPassword) {
-                passwordErrorMessage.innerHTML = "Passwords do not match";
-                return false;
-            } else {
-                passwordErrorMessage.innerHTML = "";
-                return true;
-            }
-        }
-    </script>
-
     <form action="loginPage.php" method="post" onsubmit="return validateForm()">
 
         <div class="input-box">
-            <input type="text" name="username" id="username" placeholder="Username" required>
-            <div class="error" id="user-error-message"></div>
+            <input type="text" name="fname" id="fname" placeholder="First Name" required>
         </div>
+        <div class="error" id="fname-error-message"></div>
+
+
+        <div class="input-box">
+            <input type="text" name="lname" id="lname" placeholder="Last Name" required>
+        </div>
+        <div class="error" id="lname-error-message"></div>
+
+        <div class="input-box">
+            <input type="text" name="phonenumber" id="phonenumber" placeholder="Phone Number" required>
+        </div>
+        <div class="error" id="phonenumber-error-message"></div>
+
+
+        <div class="input-box">
+            <input type="text" name="username" id="username" placeholder="Username" required>
+        </div>
+        <div class="error" id="user-error-message"></div>
 
         <div class="input-box">
             <input type="text" name="email" id="email" placeholder="Email" required>
