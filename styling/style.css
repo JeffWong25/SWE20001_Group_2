@@ -26,17 +26,17 @@
     display: inline-block;
     padding: 10px 20px;
     margin: 0 10px;
-    background: linear-gradient(to bottom, #800000, #4B0082); /* Maroon gradient */
+    background: linear-gradient(to bottom, #800000, #FFA500); 
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Added shadow */
+    transition: background-color 0.3s, box-shadow 0.3s; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); 
 }
 
 .menu-nav a:hover {
-    background: linear-gradient(to bottom, #8B0000, #483D8B); /* Darker maroon gradient on hover */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); /* Larger shadow on hover */
+    background: linear-gradient(to bottom, #8B0000, #FF8C00); 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); 
 }
 
 
