@@ -69,7 +69,6 @@
 
 /* for menu footer*/
 .menu-footer {
-    position: fixed;
     bottom: 0;
     width: 100%;
     background-color: #333;
