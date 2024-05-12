@@ -50,7 +50,7 @@
             echo "<td>" . $row['item_id'] . "</td>";
             echo "<td>" . $row['item_name'] . "</td>";
             echo "<td>" . $row['desc'] . "</td>";
-            echo "<td>" . $row['price'] . "</td>";
+            echo "<td colspan=3>" . $row['price'] . "</td>";
             echo "</tr>";
         }
         echo "</tbody>";    
