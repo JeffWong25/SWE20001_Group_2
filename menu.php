@@ -11,17 +11,17 @@
     <script src="scripts/menu.js"></script>
 </head>
 <body class="menu-body">
+    <div class="menu-nav">
+        <a href="#" onclick="filterTable(1)">Burgers</a>
+        <a href="#" onclick="filterTable(2)">Side Dishes</a>
+        <a href="#" onclick="filterTable(3)">Beverages</a>
+        <a href="#" onclick="resetTable()">Show All</a>
+    </div>
     <div class="menu-header">
         <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
         <h1>BurgerBytes Products</h1>
     </div>
-    <div>
-        <div class="menu-nav">
-            <a href="#" onclick="filterTable(1)">Burgers</a>
-            <a href="#" onclick="filterTable(2)">Side Dishes</a>
-            <a href="#" onclick="filterTable(3)">Beverages</a>
-            <a href="#" onclick="resetTable()">Show All</a>
-        </div>
+    <div class="menu-container">
     <?php
         //connect to database based on credentials in settings.php
         require_once("settings.php");
