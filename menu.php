@@ -63,10 +63,10 @@
             <div class="menu-footer-left">
                 <p>&copy; 2024 BurgerBytes. All rights reserved.</p>
             </div>
-        <div class="menu-footer-right">
-            <p>Contact Us: burgerbytes@gmail.com</p>
+            <div class="menu-footer-right">
+                <p>Contact Us: burgerbytes@gmail.com</p>
+            </div>
         </div>
-    </div>
     </footer>
 </body>
 </div>
