@@ -40,7 +40,6 @@
 }
 
 .menu-table{
-    width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
@@ -51,14 +50,12 @@
 
 .menu-table td {
     border: none;
-    background-color: white;
 }
 
 .menu-table tr {
     display: flex;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
 }
 
 .menu-table td:first-child {
