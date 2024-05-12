@@ -49,6 +49,7 @@
 .menu-table-head {
     font-size: 1.9vw; 
     background-color: #f2f2f2;
+    display: none;
 }
 
 .menu-table th, .menu-table td {
