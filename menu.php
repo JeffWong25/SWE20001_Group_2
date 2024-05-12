@@ -44,6 +44,7 @@
             echo "<span class='item-name'>" . $row['item_name'] . "</span><br>"; // Apply style to item name
             echo "<span class='item-desc'>" . $row['desc'] . "</span><br>"; // Apply style to item description
             echo "<strong class='item-price'>RM" . $row['price'] . "</strong>"; // Apply style to price
+            echo "<span class='add_button'>". $row['item_name'] . "</span> "; //Apply add item
             echo "</td>";
             echo "</tr>";
         }
