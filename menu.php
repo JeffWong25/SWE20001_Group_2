@@ -58,8 +58,7 @@
         mysqli_close($dbconn);
     ?>  
     </div>
-</body>
-<footer class="menu-footer">
+    <footer class="menu-footer">
     <div class="menu-footer-content">
         <div class="menu-footer-left">
             <p>&copy; 2024 BurgerBytes. All rights reserved.</p>
@@ -69,5 +68,7 @@
         </div>
     </div>
 </footer>
+</body>
+
 </div>
 </html>
