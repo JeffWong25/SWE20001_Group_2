@@ -60,8 +60,6 @@
     </div>
     <footer class="menu-footer-bg">
         <h3>Follow us!</h3>
-        <a href="#" class="fa fa-facebook"></a>  
-        <a href="#" class="fa fa-instagram"></a>  
     </footer>
 </body>
 </div>
