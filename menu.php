@@ -57,7 +57,8 @@
         mysqli_close($dbconn);
     ?>  
     </div>
-    <footer class="footer-bg">
+    <footer class="menu-footer-bg">
+        <h3>Follow us!</h3>
     </footer>
 </body>
 </div>
