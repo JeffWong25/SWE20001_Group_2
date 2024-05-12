@@ -39,7 +39,12 @@
         while ($row=mysqli_fetch_assoc($result)){
             echo "<tr data-category='" . $row['category_id'] . "'>";
             echo "<td><img src='" . $row['imgpath'] . "'alt='" . $row['item_name'] . "'style='width: 150px; height: auto;'></td>"; // Display the image
-            echo "<td>" .$row['item_id'] . "."," " .$row['item_name'] . "<br>" .$row['desc'] . "<br><strong>","RM".$row['price'] ."</strong></td></td>";
+            echo "<td>";
+            echo "<span class='item-id'>" . $row['item_id'] . ".</span> "; // Apply style to item ID
+            echo "<span class='item-name'>" . $row['item_name'] . "</span><br>"; // Apply style to item name
+            echo "<span class='item-desc'>" . $row['desc'] . "</span><br>"; // Apply style to item description
+            echo "<strong class='item-price'>RM" . $row['price'] . "</strong>"; // Apply style to price
+            echo "</td>";
             echo "</tr>";
         }
         echo "</tbody>";    

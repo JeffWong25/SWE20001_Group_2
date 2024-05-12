@@ -73,6 +73,26 @@
     border-radius: 10px;
 }
 
+.menu-table .item-id {
+    font-weight: bold; 
+    font-size: 16px;
+}
+
+.menu-table .item-name {
+    font-weight: bold; 
+    font-size: 18px; 
+}
+
+.menu-table .item-desc {
+    font-size: 14px;
+    color: #777; 
+}
+
+.menu-table .item-price {
+    font-weight: bold; 
+    font-size: 18px; 
+}
+
 /* for menu footer*/
 .menu-footer {
     background-color: #333;
