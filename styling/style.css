@@ -39,36 +39,29 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); 
 }
 
-.menu-table {
-    border: none;
-    border-collapse: separate;
-    border-spacing: 0;
-    width: 90%;
-    margin: 0 auto;
-    font-size: 1.2rem;
-    background-color: #fff;
+.menu-table{
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+    margin-left: 5%; margin-right: 5%; font-size: 1.5vw; 
+    background-color: white
 }
 
 .menu-table-head {
-    font-size: 1.4rem;
+    font-size: 1.9vw; 
     background-color: #f2f2f2;
-    color: #333;
-    font-weight: bold;
 }
 
 .menu-table th, .menu-table td {
-    padding: 12px;
-    border: none;
-    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    border: 1px solid #dddddd;
     text-align: left;
 }
 
 .menu-table td img {
-    max-width: 120px;
+    max-width: 90px;
     height: auto;
     display: block;
     margin: 0 auto;
-    border-radius: 8px;
 }
 
 /* For Log In and Sign Up Page*/
