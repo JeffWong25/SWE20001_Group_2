@@ -4,7 +4,6 @@
 <head class="bg"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include 'header.php'?>
     <title>BurgerBytes Menu</title>
     <link rel="stylesheet" href="styling/style.css">
     <link rel="stylesheet2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
@@ -29,7 +28,7 @@
         if (!$dbconn) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        $sql = "SELECT item_id, item_name, imgpath, `desc`, price, category_id FROM menu_items";
+        $sql = "SELECT item_id, item_name, imgpath, `desc`, price, category_id, add_button FROM menu_items";
         $result = mysqli_query($dbconn, $sql);
         //generate table
         echo "<table id='menu-table' class='menu-table' border='1'>";
@@ -44,7 +43,7 @@
             echo "<span class='item-name'>" . $row['item_name'] . "</span><br>"; // Apply style to item name
             echo "<span class='item-desc'>" . $row['desc'] . "</span><br>"; // Apply style to item description
             echo "<strong class='item-price'>RM" . $row['price'] . "</strong>"; // Apply style to price
-            echo "<span class='add_button'>". $row['add_button'] . "</span> "; //Apply add item
+            echo "<span class='add_icon'><a href='#' onclick=\"href='product/{$row['item_id']}.php';\"><img src='" . $row['add_button'] . "' alt='ADD' style='width: 30px; height: 30px;'></a></span>"; //Apply add item
             echo "</td>";
             echo "</tr>";
         }
