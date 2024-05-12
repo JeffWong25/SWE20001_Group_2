@@ -5,7 +5,6 @@
     padding: 0;
     background-color: red;
     padding-left: 5%;
-    padding-bottom: 20px;
 }
 .menu-body {
     font-family: sans-serif;
@@ -15,6 +14,7 @@
     background-position: center;
     position: relative;
     margin: 0;
+    padding-top: 20px;
 }
 
 .menu-nav {
