@@ -207,6 +207,17 @@
     color: blue;
     text-decoration: none;
 }
+
+.goToNext a {
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 20px;
+    background-image: linear-gradient(45deg, #F81B15, #FDC400); 
+    color: #fff; 
+    text-decoration: none;
+    border-radius: 15px; 
+  }
+
 /*Nagation bar(TOP)*/
 .navbar1{
     display: flex;

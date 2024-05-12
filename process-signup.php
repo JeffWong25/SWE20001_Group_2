@@ -102,9 +102,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php if (isset($message)) : ?>
             <p class="<?php echo $class; ?>"><?php echo $message; ?></p>
             <?php if ($class === "creationError") : ?>
-                <div class="links"><a href="signupPage.php">Sign Up Again</a></div>
+                <div class="goToNext"><a href="signupPage.php">Use Different Email</a></div>
+                <div class="goToNext"><a href="loginPage.php">Go to Log In</a></div>
             <?php else : ?>
-                <div class="links"><a href="loginPage.php">Log In Now</a></div>
+                <div class="goToNext"><a href="loginPage.php">Log In Now</a></div>
             <?php endif; ?>
         <?php endif; ?>
     </form>
