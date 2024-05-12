@@ -35,13 +35,6 @@
         //generate table
         echo "<table id='menu-table' class='menu-table' border='1'>";
         echo "<thead class='menu-table-head'>";
-            echo "<tr>";
-                echo "<th>Image</th>"; 
-                echo "<th>Item ID</th>";
-                echo "<th>Item Name</th>";
-                echo "<th>Description</th>";
-                echo "<th>Price</th>";
-            echo "</tr>";
         echo "</thead>";
         echo "<tbody>";
         while ($row=mysqli_fetch_assoc($result)){
