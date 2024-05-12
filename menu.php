@@ -31,7 +31,6 @@
         }
         $sql = "SELECT item_id, item_name, imgpath, `desc`, price, category_id FROM menu_items";
         $result = mysqli_query($dbconn, $sql);
-
         //generate table
         echo "<table id='menu-table' class='menu-table' border='1'>";
         echo "<thead class='menu-table-head'>";
@@ -40,7 +39,7 @@
         while ($row=mysqli_fetch_assoc($result)){
             echo "<tr data-category='" . $row['category_id'] . "'>";
             echo "<td><img src='" . $row['imgpath'] . "'alt='" . $row['item_name'] . "'style='width: 90px; height: auto;'></td>"; // Display the image
-            echo "<td>" . $row['item_id'] . "-" .$row['item_name'] . "<br>" . $row['desc'] . "<br>". $row['price'] ."</td>";
+            echo "<td>" .$row['item_id'] . "-" .$row['item_name'] . "<br>" .$row['desc'] . "<br>".$row['price'] ."</td>";
             echo "</tr>";
         }
         echo "</tbody>";    
