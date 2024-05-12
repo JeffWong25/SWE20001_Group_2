@@ -14,8 +14,6 @@
     background-position: center;
     position: relative;
     margin: 0;
-    padding: 0;
-    padding-bottom: 20px;
 }
 
 .menu-nav {
@@ -57,6 +55,7 @@
     padding: 8px;
     border: 1px solid #dddddd;
     text-align: left;
+    font-size: 1rem;
 }
 
 .menu-table td img {
