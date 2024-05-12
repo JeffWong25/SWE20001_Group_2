@@ -7,6 +7,7 @@
     <?php include 'header.php'?>
     <title>BurgerBytes Menu</title>
     <link rel="stylesheet" href="styling/style.css">
+    <link rel="stylesheet2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
     <script src="scripts/menu.js"></script>
 </head>
 <body class="menu-body">
@@ -59,6 +60,8 @@
     </div>
     <footer class="menu-footer-bg">
         <h3>Follow us!</h3>
+        <a href="#" class="fa fa-facebook"></a>  
+        <a href="#" class="fa fa-instagram"></a>  
     </footer>
 </body>
 </div>

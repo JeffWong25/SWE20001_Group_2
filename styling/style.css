@@ -67,6 +67,10 @@
 /* for menu footer*/
 .menu-footer-bg{
     background-color: #F81B15;
+    width: 50%;
+    float: left;
+    text-align: left; 
+    background: none; 
 }
 
 /* For Log In and Sign Up Page*/
