@@ -64,6 +64,11 @@
     margin: 0 auto;
 }
 
+/* for menu footer*/
+.menu-footer-bg{
+    background-color: #F81B15;
+}
+
 /* For Log In and Sign Up Page*/
 .login-body {
     font-family: sans-serif;
