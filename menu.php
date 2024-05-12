@@ -58,10 +58,18 @@
         mysqli_close($dbconn);
     ?>  
     </div>
-    <footer class="menu-footer-bg">
-        <h3>Follow us!</h3>
-        <img src="images/facebook-icon.png" title="facebook" width="20">
-    </footer>
+    <footer class="menu-footer">
+    <div class="menu-footer-content">
+        <div class="menu-footer-left">
+            <!-- Add content for the left side of the footer -->
+            <p>&copy; 2024 Your Restaurant Name. All rights reserved.</p>
+        </div>
+        <div class="menu-footer-right">
+            <!-- Add content for the right side of the footer -->
+            <p>Contact Us: info@example.com</p>
+        </div>
+    </div>
+</footer>
 </body>
 </div>
 </html>
