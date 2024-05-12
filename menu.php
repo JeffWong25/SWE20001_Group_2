@@ -12,6 +12,7 @@
 <body class="menu-body">
     <div class="menu-header">
         <h1>BurgerBytes Products</h1>
+        <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.jpg" id="logo" alt="BurgerBytes logo" width="70"></a>
     </div>
     <div>
         <div class="menu-nav">
