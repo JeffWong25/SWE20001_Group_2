@@ -59,16 +59,15 @@
     ?>  
     </div>
     <footer class="menu-footer">
-    <div class="menu-footer-content">
-        <div class="menu-footer-left">
-            <p>&copy; 2024 BurgerBytes. All rights reserved.</p>
+        <div class="menu-footer-content">
+            <div class="menu-footer-left">
+                <p>&copy; 2024 BurgerBytes. All rights reserved.</p>
+            </div>
+            <div class="menu-footer-right">
+                <p>Contact Us: burgerbytes@gmail.com</p>
+            </div>
         </div>
-        <div class="menu-footer-right">
-            <p>Contact Us: burgerbytes@gmail.com</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 </body>
-
 </div>
 </html>
