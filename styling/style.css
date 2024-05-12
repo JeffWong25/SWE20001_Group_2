@@ -15,6 +15,7 @@
     position: relative;
     margin: 0;
     padding: 0;
+    padding-bottom: 20px;
 }
 
 .menu-nav {
@@ -68,6 +69,9 @@
 
 /* for menu footer*/
 .menu-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: #333;
     color: #fff;
     padding: 20px 0;
