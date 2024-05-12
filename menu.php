@@ -60,6 +60,7 @@
     </div>
     <footer class="menu-footer-bg">
         <h3>Follow us!</h3>
+        <img src="images/facebook-logo.png" title="facebook" width="20">
     </footer>
 </body>
 </div>
