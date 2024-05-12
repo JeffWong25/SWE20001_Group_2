@@ -6,6 +6,12 @@
     background-color: red;
     padding-left: 5%;
 }
+.menu-container{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto; /* This centers the container horizontally */
+}
+
 .menu-body {
     font-family: sans-serif;
     background: linear-gradient(45deg, #F81B15, #FDC400);
