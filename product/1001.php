@@ -23,35 +23,30 @@
             $sql = "SELECT item_name, imgpath, `desc`, price FROM menu_items WHERE item_id = 1001";
                 $result = mysqli_query($dbconn, $sql);
 
-                echo "<table border = "1">";
-                if ($row = mysqli_fetch_assoc($result)) {
-                    
-                    echo "<div class='product'>";
-                    echo "<tr>"
-                    echo "<div class = product_div_img>";
-                    echo "<span class='product_img'><td rowspan="3"><img src='../" . $row['imgpath'] . "' alt='" . $row['item_name'] . "' style='width: 600px; height: auto;'></td></span><br>";
-                    echo "</div>";
+            echo "<table border = '1', style='margin: 20px;'>";
+            if ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td rowspan='3' class='product_div_img'><img src='../" . $row['imgpath'] . "' alt='" . $row['item_name'] . "' style='width: 550px; height: auto;'></td>";
+                echo "<td colspan='2' class='product_div_desc' style='vertical-align: top; Padding-left: 20px; Padding-right: 20px;'><span class='product_name'><strong><h1>" . $row['item_name'] . "</h1></strong></span><br>";
+                echo "<span class='product_desc' style='font-size: 19px;'>" . $row['desc'] . "</span><br></td>";
+                echo "</tr>";
+                
+                echo "<tr>";
+                echo "<td colspan='2'>";
+                echo "<form>";
+                echo "<label for='textbox_id'>Preference(Optional):</label>";
+                echo "<input type='text' name='preference' id='textbox_id' style='width: 300px; height: 100px;'>"; // Adjust the width as needed
+                echo "</form>";
+                echo "</td>";
+                echo "</tr>";
+                
+                echo "<tr>";
+                echo "<td class='product_price'>" . $row['price'] . "</td>";
+                echo "<td class='product_page_add'>ADD</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
 
-                    echo "<div class = product_div_desc>";
-                    echo "<td colspan="2"><span class='product_name'><heavy>" . $row['item_name'] . "</heavy></span><br>";
-                    echo "<span class='product_desc'>" . $row['desc'] . "</span><br></td>";
-                    echo "</tr>";
-                    echo "<tr><td colspan"2">";
-                    echo "<form>";
-                    echo "  <label for=\"textbox_id\">Enter your name:</label>";
-                    echo "  <input type=\"text\" name=\"username\" id=\"textbox_id\">";
-                    echo "</form>";
-                    echo "<td></tr>";
-                    
-                    echo "<tr>";     
-                    echo "<span class='product_price'><td>" . $row['price'] . "</td></span>";
-                    echo "<td></td>"; 
-                    echo "</tr>";
-                    echo "</div>";
-
-                    echo "</div>";
-                } 
-                echo"</table";
 
             mysqli_close($dbconn);
         ?>
