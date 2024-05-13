@@ -95,12 +95,13 @@
 
 /* for menu footer*/
 .menu-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: #333;
     color: #fff;
     padding: 20px 0;
-    text-align: center;
 }
-
 .menu-footer-content {
     display: flex;
     justify-content: space-between;
@@ -115,6 +116,7 @@
 .menu-footer p {
     margin: 0;
     font-size: 14px;
+    
 }
 
 /* For Log In and Sign Up Page*/
@@ -225,3 +227,13 @@
     padding: 0;
     background-color: rgb(255, 0, 0); 
 }
+
+/*product webpage styling*/
+.product_page {
+    height: 100vh; /* Ensure the div takes up the full viewport height */
+}
+
+.product {
+    display: flex;
+}
+
