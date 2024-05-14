@@ -247,3 +247,20 @@
     vertical-align: top; /* Align the text to the top */
     line-height: 1.5; /* Adjust line height if needed */
 }
+
+.product_price{
+    vertical-align: middle;
+    Padding-left: 12px;
+    font-size: 19px;
+}
+
+.product_page_add {
+    text-align: center; /* Center horizontally */
+    vertical-align: middle; /* Center vertically */
+    padding: 10px; /* Optional padding to adjust spacing */
+    background-color: #808080; /* Replace with your desired color */
+    color: #333; /* Optional: text color for contrast */
+    color: #000000; /* Change text color to red, adjust as needed */
+    font-weight: bold; /* Optional: make text bold */
+    border-radius: 5px; /* Optional: rounded corners */
+}

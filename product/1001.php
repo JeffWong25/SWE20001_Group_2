@@ -1,68 +1,61 @@
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
 <head class="bg"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BurgerBytes Menu</title>
     <link rel="stylesheet" href="../styling/style.css">
-    <link rel="stylesheet2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+    <script>
+    function addToCart(element) {
+        const itemId = element.getAttribute('data-item-id');
+        const preference = document.getElementById('textbox_id').value;
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'add_to_cart.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                alert(xhr.responseText); // Display response from server
+                window.location.href = '../menu.php';
+            }
+        };
+        xhr.send('item_id=' + itemId + '&preference=' + encodeURIComponent(preference));
+    }
+
+    // Event listener for product_page_add elements
+    const addToCartButtons = document.querySelectorAll('.product_page_add');
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            window.location.href = '../menu.php'; // Redirect to menu.php
+        });
+    });
+</script>
+
 </head>
 <body class="menu-body">
     <div class="menu-header">
-        <a><img src="../images/vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
+        <a href="#"><img src="../images/vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
         <h1>BurgerBytes Products</h1>
     </div>
-    <div class = "product_page">
+    <div class="product_page">
         <?php
-            //connect to database based on credentials in settings.php
             require_once("../settings.php");
             $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
             if (!$dbconn) {
                 die("Connection failed: " . mysqli_connect_error());
             }
-            $sql = "SELECT item_name, imgpath, `desc`, price FROM menu_items WHERE item_id = 1001";
-                $result = mysqli_query($dbconn, $sql);
+            $sql = "SELECT item_name, imgpath, `desc`, price, item_id FROM menu_items WHERE item_id = 1001";
+            $result = mysqli_query($dbconn, $sql);
 
             echo "<table style='margin: 20px;'>";
             if ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td rowspan='3' class='product_div_img'><img src='../" . $row['imgpath'] . "' alt='" . $row['item_name'] . "' style='width: 550px; height: auto;'></td>";
-                echo "<td colspan='2' class='product_div_desc' style='vertical-align: top; Padding-left: 12px; Padding-right: 12px;'><span class='product_name'><strong><h1>" . $row['item_name'] . "</h1></strong></span><br>";
-                echo "<span class='product_desc' style='font-size: 19px;'>" . $row['desc'] . "</span><br></td>";
-                echo "</tr>";
-                
-                echo "<tr>";
-                echo "<td colspan='2' style='Padding-left: 12px; '>";
-                echo "<form>";
-                echo "<div style='margin-bottom: 10px;'>";
-                echo "<label for='textbox_id' style = 'display: block; margin-bottom: 5px;'>Preference(Optional):</label>"; // Use <br> to ensure the label is above the input
-                echo "<textarea name='preference' id='textbox_id' class = 'enlarge-textarea'></textarea>";
-                echo "</div>";
-                echo "</form>";
-                echo "</td>";
-                echo "</tr>";
-                
-                echo "<tr>";
-                echo "<td class='product_price' style='Padding-left: 12px;font-size: 19px;'><strong>RM" . $row['price'] . "</strong></td>";
-                echo "<td class='product_page_add'>ADD</td>";
-                echo "</tr>";
+                require("add_to_cart_table.php");
             }
             echo "</table>";
-
 
             mysqli_close($dbconn);
         ?>
     </div>
-    <footer class="menu-footer">
-        <div class="menu-footer-content">
-            <div class="menu-footer-left">
-                <p>&copy; 2024 BurgerBytes. All rights reserved.</p>
-            </div>
-            <div class="menu-footer-right">
-                <p>Contact Us: burgerbytes@gmail.com</p>
-            </div>
-        </div>
-    </footer>
+    <?php require("footer.php"); ?>
 </body>
-
 </html>
