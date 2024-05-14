@@ -34,24 +34,24 @@
     display: inline-block;
     padding: 10px 20px;
     margin: 0 10px;
-    background: linear-gradient(to bottom, #800000, #DC143C); 
+    background: linear-gradient(to bottom, #800000, #DC143C);
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s, box-shadow 0.3s; 
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); 
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .menu-nav a:hover {
-    background: linear-gradient(to bottom, #8B0000, #B22222); 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); 
-    
+    background: linear-gradient(to bottom, #8B0000, #B22222);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+
 }
 
 .menu-table{
     border: 1px solid #dddddd;
     border-collapse: collapse;
-    margin-left: 5%; margin-right: 5%; font-size: 1.5vw; 
+    margin-left: 5%; margin-right: 5%; font-size: 1.5vw;
     background-color: white;
 }
 
@@ -74,23 +74,23 @@
 }
 
 .menu-table .item-id {
-    font-weight: bold; 
+    font-weight: bold;
     font-size: 18px;
 }
 
 .menu-table .item-name {
-    font-weight: bold; 
-    font-size: 18px; 
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .menu-table .item-desc {
     font-size: 14px;
-    color: #777; 
+    color: #777;
 }
 
 .menu-table .item-price {
-    font-weight: bold; 
-    font-size: 18px; 
+    font-weight: bold;
+    font-size: 18px;
 }
 
 /* for menu footer*/
@@ -114,7 +114,7 @@
 .menu-footer p {
     margin: 0;
     font-size: 14px;
-    
+
 }
 
 
@@ -213,10 +213,10 @@
     display: inline-block;
     padding: 12px 20px;
     margin-top: 20px;
-    background-image: linear-gradient(45deg, #F81B15, #FDC400); 
-    color: #fff; 
+    background-image: linear-gradient(45deg, #F81B15, #FDC400);
+    color: #fff;
     text-decoration: none;
-    border-radius: 15px; 
+    border-radius: 15px;
   }
 
 /*Nagation bar(TOP)*/
@@ -224,7 +224,7 @@
     display: flex;
     align-items: center;
     padding: 0;
-    background-color: rgb(255, 0, 0); 
+    background-color: rgb(255, 0, 0);
 }
 
 /*product webpage styling*/
@@ -247,3 +247,42 @@
     vertical-align: top; /* Align the text to the top */
     line-height: 1.5; /* Adjust line height if needed */
 }
+
+/*order preview*/
+.table_font{
+    margin:auto;
+    border-spacing: 50px 10px;
+    font-size: 20px;
+
+}
+
+.table_font td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+#noborder{
+    border:none;
+}
+
+.table_font1{
+    margin-left: 50px;
+    border-spacing: 450px 0px;
+    font-size: 20px;
+
+}
+
+#hr_style {
+    width: 50%
+}
+
+.checkout_background {
+    /*background-image:url(../images/checkout_background.png);
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    background: linear-gradient(45deg,  #F81B15, #FDC400);
+    color:black;
+
+}
+
