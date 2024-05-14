@@ -23,25 +23,27 @@
             $sql = "SELECT item_name, imgpath, `desc`, price FROM menu_items WHERE item_id = 1001";
                 $result = mysqli_query($dbconn, $sql);
 
-            echo "<table border = '1', style='margin: 20px;'>";
+            echo "<table style='margin: 20px;'>";
             if ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td rowspan='3' class='product_div_img'><img src='../" . $row['imgpath'] . "' alt='" . $row['item_name'] . "' style='width: 550px; height: auto;'></td>";
-                echo "<td colspan='2' class='product_div_desc' style='vertical-align: top; Padding-left: 20px; Padding-right: 20px;'><span class='product_name'><strong><h1>" . $row['item_name'] . "</h1></strong></span><br>";
+                echo "<td colspan='2' class='product_div_desc' style='vertical-align: top; Padding-left: 12px; Padding-right: 12px;'><span class='product_name'><strong><h1>" . $row['item_name'] . "</h1></strong></span><br>";
                 echo "<span class='product_desc' style='font-size: 19px;'>" . $row['desc'] . "</span><br></td>";
                 echo "</tr>";
                 
                 echo "<tr>";
-                echo "<td colspan='2'>";
+                echo "<td colspan='2' style='Padding-left: 12px; '>";
                 echo "<form>";
-                echo "<label for='textbox_id'>Preference(Optional):</label>";
-                echo "<input type='text' name='preference' id='textbox_id' style='width: 300px; height: 100px;'>"; // Adjust the width as needed
+                echo "<div style='margin-bottom: 10px;'>";
+                echo "<label for='textbox_id' style = 'display: block; margin-bottom: 5px;'>Preference(Optional):</label>"; // Use <br> to ensure the label is above the input
+                echo "<textarea name='preference' id='textbox_id' class = 'enlarge-textarea'></textarea>";
+                echo "</div>";
                 echo "</form>";
                 echo "</td>";
                 echo "</tr>";
                 
                 echo "<tr>";
-                echo "<td class='product_price'>" . $row['price'] . "</td>";
+                echo "<td class='product_price' style='Padding-left: 12px;font-size: 19px;'><strong>RM" . $row['price'] . "</strong></td>";
                 echo "<td class='product_page_add'>ADD</td>";
                 echo "</tr>";
             }

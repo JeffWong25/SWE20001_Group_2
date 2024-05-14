@@ -236,3 +236,14 @@
     display: flex;
     margin : 20px;
 }
+
+.enlarge-textarea{
+    min-width: 500px;
+    min-height: 200px;
+    max-width: 600px; /* Maximum width */
+    max-height: 200px; /* Maximum height */
+    padding: 10px; /* Padding inside the textarea */
+    box-sizing: border-box; /* Ensure padding doesn't increase the overall width/height */
+    vertical-align: top; /* Align the text to the top */
+    line-height: 1.5; /* Adjust line height if needed */
+}
