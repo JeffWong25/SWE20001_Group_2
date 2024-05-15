@@ -3,9 +3,18 @@
     display: flex;
     align-items: center;
     padding: 0;
-    background-color: red;
+    background:  linear-gradient(90deg,  #F81B15, #FDC400);
     padding-left: 5%;
 }
+
+.menu-header h1{
+    color: white;
+}
+
+.menu-header #logo{
+    filter: invert(100%);
+}
+
 
 .menu-container{
     display: flex;
@@ -17,7 +26,7 @@
 .menu-body {
     width: 100%;
     font-family: sans-serif;
-    background: linear-gradient(45deg, #F81B15, #fdc400);
+    background-color: #f8f6ee;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -27,6 +36,7 @@
 
 .menu-nav {
     text-align: center;
+    padding-top: 15px;
     margin-bottom: 20px;
 }
 
@@ -34,7 +44,7 @@
     display: inline-block;
     padding: 10px 20px;
     margin: 0 10px;
-    background: linear-gradient(to bottom, #800000, #DC143C);
+    background: linear-gradient(45deg,  #F81B15, #FDC400);
     color: white;
     text-decoration: none;
     border-radius: 5px;
