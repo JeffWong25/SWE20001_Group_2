@@ -1,6 +1,6 @@
 <tr>
     <td rowspan='3' class='product_div_img'>
-        <img src='../<?php echo $row['imgpath']; ?>' alt='<?php echo $row['item_name']; ?>' style='width: 550px; height: auto;'>
+        <img src='../<?php echo $row['imgpath']; ?>' alt='<?php echo $row['item_name']; ?>' style='width: 550px; height: auto; max-width: 550px; max-height: 550px;'>
     </td>
     <td colspan='2' class='product_div_desc' style='vertical-align: top; padding-left: 12px; padding-right: 12px;'>
         <span class='product_name'><strong><h1><?php echo $row['item_name']; ?></h1></strong></span><br>

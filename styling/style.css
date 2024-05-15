@@ -248,7 +248,6 @@
     line-height: 1.5; /* Adjust line height if needed */
 }
 
-<<<<<<< HEAD
 .product_price{
     vertical-align: middle;
     Padding-left: 12px;
@@ -265,7 +264,6 @@
     font-weight: bold; /* Optional: make text bold */
     border-radius: 5px; /* Optional: rounded corners */
 }
-=======
 /*order preview*/
 .table_font{
     margin:auto;
@@ -304,4 +302,3 @@
 
 }
 
->>>>>>> 543f1bdf3b2a68afa4f3eb484c4191102c93683b
