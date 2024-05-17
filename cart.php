@@ -22,18 +22,53 @@
                 }
             }
         };
-    xhr.send('cart_id=' + cart_id);
-}
+        xhr.send('cart_id=' + cart_id);
+        }
 
     </script>
+    <style>
+
+.checkout-button {
+    width: 100%;
+    font-size: 25px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #F81B15, #FDC400);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    margin: 10px 0px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+    text-decoration: none; /* Ensure the link text has no underline */
+    display: inline-block; /* Ensure the button is displayed inline */
+}
+
+.checkout-button:active {
+    transform: scale(0.9);
+}
+
+.checkout-button a {
+    color: #fff; /* Ensure the link text is white */
+    text-decoration: none; /* Ensure the link text has no underline */
+    display: block; /* Ensure the link fills the button */
+    width: 100%; /* Ensure the link takes full width */
+    height: 100%; /* Ensure the link takes full height */
+}
+
+    </style>
 </head>
 <body class="menu-body">
-<div class="menu-header">
+    <div class="menu-header">
         <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
         <h1>BurgerBytes Products</h1>
     </div>
-<div class="cart-container" style="padding-left: 50px;">
-        <h1>Your Cart</h1>
+    <div class="cart-container" style="padding-left: 50px;">
+        <div class ="cart-back-and-cart" style="display: flex; align-items: center;">
+            <a href="menu.php"><img src="images\previous.png" id="previous_button" alt="BACK" style="padding-right: 10px;"></a>
+            <h1>Your Cart</h1>
+        </div>
         <table  style="margin: 20px; border=1; " >
             <tr>
                 <th>Item Name</th>
@@ -69,6 +104,7 @@
             mysqli_close($dbconn);
             ?>
         </table>
+        <button class="checkout-button"><a href="checkout.php">Checkout</a></button>
     </div>
     <?php require("product/footer.php"); ?>
 </body>
