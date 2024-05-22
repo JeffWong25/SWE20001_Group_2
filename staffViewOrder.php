@@ -1,16 +1,15 @@
 <?php
 session_start();
-include 'db_connection.php';
-
-// Check if staff is logged in
-if (!isset($_SESSION['staff_logged_in'])) {
-    header('');
-    exit();
+require_once("settings.php");
+//connection
+$dbconn = mysqli_connect($host, $user, $pwd, $sql_db);
+if (!$dbconn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 // Fetch orders from the database
 $sql = "SELECT order_id, user_id, total_amt, orderdate, status FROM orders";
-$result = $conn->query($sql);
+$result = $dbconn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +23,12 @@ $result = $conn->query($sql);
         <script src="scripts/menu.js"></script>
     </head>
     <body>
+    <div class="menu-header">
+        <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
+        <h1>BurgerBytes</h1>
+    </div>
         <h1>Order List</h1>
-        <table border="1">
+        <table class="table_font">
         <tr>
             <th>Order ID</th>
             <th>User ID</th>
@@ -47,7 +50,7 @@ $result = $conn->query($sql);
         } else {
             echo "<tr><td colspan='6'>No orders found</td></tr>";
         }
-        $conn->close();
+        $dbconn->close();
         ?>
     </table>
 
