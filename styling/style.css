@@ -302,21 +302,12 @@
     width: 50%
 }
 
-.checkout_background {
-    /*background-image:url(../images/checkout_background.png);
-    background-attachment:fixed;
-    background-repeat: no-repeat;
-    background-size: cover;*/
-    background: linear-gradient(45deg,  #F81B15, #FDC400);
-    color:black;
-
-}
 
 /*style for cart.php*/
 .cart-container {
     padding-left: 50px;
     margin: 0 auto; /* Set left and right margin to auto */
-}   
+}
 .desc-column {
     max-width: 400px;
     word-wrap: break-word; /* Ensures long words are wrapped */
@@ -349,4 +340,72 @@ table td {
 
 .product_page_add:active {
     transform: scale(0.9);
+}
+
+/* General styles for the payment methods section */
+.payment-methods {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    max-width: 600px;
+    text-align: center;
+}
+
+.payment-methods h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.payment-methods label {
+    display: block;
+    margin: 10px 0;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.payment-methods input[type="radio"] {
+    margin-right: 10px;
+}
+
+.payment-methods .form-buttons {
+    margin-top: 20px;
+}
+
+.payment-methods .form-buttons button {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.payment-methods .form-buttons .proceed-button {
+    background-color: #4CAF50;
+}
+
+.payment-methods .form-buttons .proceed-button:hover {
+    background-color: #45a049;
+}
+
+.payment-methods .form-buttons .return-button {
+    background-color: #f44336;
+}
+
+.payment-methods .form-buttons .return-button:hover {
+    background-color: #d32f2f;
+}
+.payment-methods a{
+    text-decoration: none;
+}
+.payment-background{
+    width: 100%;
+    background-color: #f8f6ee;
+    font-family: sans-serif;
 }

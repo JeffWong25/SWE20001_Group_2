@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head class="bg"> 
+<head class="bg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BurgerBytes Menu</title>
     <link rel="stylesheet" href="styling/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
         function minusCart(element) {
         const cart_id = element.getAttribute('data-item-id');
@@ -69,7 +69,7 @@
             <a href="menu.php"><img src="images\previous.png" id="previous_button" alt="BACK" style="padding-right: 10px;"></a>
             <h1>Your Cart</h1>
         </div>
-        <table  style="margin: 20px; border=1; " >
+        <table  style="margin: 20px; border= 1; " >
             <tr>
                 <th>Item Name</th>
                 <th>Image</th>
@@ -86,10 +86,10 @@
             }
 
             // Fetch the combined data from cart and menu_items
-            $sql = "SELECT cart_id, menu_items.item_name, menu_items.imgpath, menu_items.`desc`, cart.comment, minus_button 
-                    FROM cart 
-                    JOIN menu_items 
-                    ON cart.menu_items = menu_items.item_id 
+            $sql = "SELECT cart_id, menu_items.item_name, menu_items.imgpath, menu_items.`desc`, cart.comment, minus_button
+                    FROM cart
+                    JOIN menu_items
+                    ON cart.menu_items = menu_items.item_id
                     ORDER BY cart.menu_items";
             $result = mysqli_query($dbconn, $sql);
 
