@@ -1,3 +1,24 @@
+<style>
+.product_page_add {
+    width: 25%;
+    font-size: 23px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #F81B15, #FDC400);
+    color: #fff;
+    padding: 8px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 100px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.product_page_add:active {
+    transform: scale(0.9);
+}
+</style>
+
 <tr>
     <td rowspan='3' class='product_div_img'>
         <img src='../<?php echo $row['imgpath']; ?>' alt='<?php echo $row['item_name']; ?>' style='width: 550px; height: auto; max-width: 550px; max-height: 550px;'>
