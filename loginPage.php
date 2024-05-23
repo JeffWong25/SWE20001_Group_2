@@ -26,7 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user){
         if(password_verify($_POST["password"], $user["password"])){
             session_start();
-            $_SESSION["email"] = $user["email"];
+
+            //Regenerate session ID to help prevent fixation attacks
+            session_regenerate_id();
+            $_SESSION["customer"] = $user["email"];
             header("Location: menu.php");
             exit;    
                 

@@ -11,15 +11,47 @@
 </head>
 <body class="menu-body">
     <div class="menu-header">
-        <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
-        <h1>BurgerBytes Products</h1>
+        <div class="menu-header-left">
+            <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
+            <h1>BurgerBytes Products</h1>
+        </div>
+       <a href="logout.php" class="logout-button">Logout</a>  
     </div>
+
+    <?php
+    session_start();
+
+    if(isset($_SESSION["customer"])){
+        require_once("settings.php");
+        $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
+        if (!$dbconn) {
+            die("Connection failed: " . mysqli_connect_error());
+        } 
+
+        $sql = "SELECT *  FROM customers
+        WHERE user_id = '{$_SESSION["customer"]}'"; 
+
+        $result = mysqli_query($dbconn, $sql);
+        $customer = $result->fetch_assoc();
+    }
+    ?>
+
+    <div id="welcome-container">
+    <?php if (isset($customer)): ?>
+        <div id="welcome-message">
+        <p>Welcome, <?= htmlspecialchars($customer["fname"]) ?>!</p>
+        <p>What would you like today?</p>
+        </div>
+    <?php endif; ?>
+    </div>
+
         <div class="menu-nav">
         <a href="#" onclick="filterTable(1)">Burgers</a>
         <a href="#" onclick="filterTable(2)">Side Dishes</a>
         <a href="#" onclick="filterTable(3)">Beverages</a>
         <a href="#" onclick="resetTable()">Show All</a>
     </div>
+    
     <div class="menu-container">
     <?php
         //connect to database based on credentials in settings.php
