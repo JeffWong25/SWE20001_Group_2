@@ -45,7 +45,7 @@
             <th id ='noborder'></th>
         </tr>
         <?php
-         $subtotal = 0; // Initialize subtotal variable
+         $subtotal = 0; // Initialize subtotal variablesss
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $total = $row['price']; // Calculate total for each item
