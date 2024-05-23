@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <div class ="menu-whole-page">
-<head class="bg"> 
+<head class="bg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BurgerBytes Menu</title>
     <link rel="stylesheet" href="styling/style.css">
-    <link rel="stylesheet2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+    <link rel="stylesheet2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="scripts/menu.js"></script>
 </head>
 <body class="menu-body">
@@ -15,7 +15,7 @@
             <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
             <h1>BurgerBytes Products</h1>
         </div>
-       <a href="logout.php" class="logout-button">Logout</a>  
+       <a href="logout.php" class="logout-button">Logout</a>
     </div>
 
     <?php
@@ -26,10 +26,10 @@
         $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
         if (!$dbconn) {
             die("Connection failed: " . mysqli_connect_error());
-        } 
+        }
 
         $sql = "SELECT *  FROM customers
-        WHERE user_id = '{$_SESSION["customer"]}'"; 
+        WHERE user_id = '{$_SESSION["customer"]}'";
 
         $result = mysqli_query($dbconn, $sql);
         $customer = $result->fetch_assoc();
@@ -51,7 +51,7 @@
         <a href="#" onclick="filterTable(3)">Beverages</a>
         <a href="#" onclick="resetTable()">Show All</a>
     </div>
-    
+
     <div class="menu-container">
     <?php
         //connect to database based on credentials in settings.php
@@ -79,10 +79,10 @@
             echo "</td>";
             echo "</tr>";
         }
-        echo "</tbody>";    
+        echo "</tbody>";
         echo "</table>";
         mysqli_close($dbconn);
-    ?>  
+    ?>
     <div class="menu_cart"><a href="cart.php"><img src="images/basket.png" alt="Cart"></a></div>
     </div>
     <footer class="menu-footer">

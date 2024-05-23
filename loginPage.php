@@ -8,10 +8,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    // Sanitize the input 
+    // Sanitize the input
     $email = mysqli_real_escape_string($dbconn, $_POST["email"]);
 
-    
+
     $sql = "SELECT * FROM customers WHERE email = '$email'";
     $result = mysqli_query($dbconn, $sql);
 
@@ -31,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_regenerate_id();
             $_SESSION["customer"] = $user["email"];
             header("Location: menu.php");
-            exit;    
-                
+            exit;
+
         }else{
             $is_invalid = true;
         }
@@ -72,9 +72,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <button type="submit">Log In</button>
 
-            <div class="links">Don't have an account? <a href="signupPage.php">Sign Up</a></div>            
+            <div class="links">Don't have an account? <a href="signupPage.php">Sign Up</a></div>
         </form>
     </div>
 
     </body>
-</html>   
+</html>

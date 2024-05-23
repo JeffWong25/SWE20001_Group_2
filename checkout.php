@@ -1,12 +1,20 @@
 <?php
-    session_start();
+session_start(); // Start the session
+// Check if the user is logged in
+if (!isset($_SESSION['customer'])) {
+    header("Location: loginPage.php"); // Redirect to login page if not logged in
+    exit;
+}
+?>
+
+<?php
     require_once("settings.php");
     //connection
     $dbconn = mysqli_connect($host, $user, $pwd, $sql_db);
     if (!$dbconn) {
         die("Connection failed: " . mysqli_connect_error());
     }
-    // Fetch orders from the database
+    // Fetch cart from the database
     $sql = "SELECT cart_id, menu_items.item_name, menu_items.imgpath, menu_items.`desc`, menu_items.price, comment, minus_button
                     FROM cart
                     JOIN menu_items
@@ -29,10 +37,13 @@
         </script>
     </head>
 
-    <body class>
+    <body class = "payment-background">
     <div class="menu-header">
-        <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
-        <h1>BurgerBytes Products</h1>
+        <div class="menu-header-left">
+            <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
+            <h1>BurgerBytes Checkout</h1>
+        </div>
+       <a href="logout.php" class="logout-button">Logout</a>
     </div>
         <table class="table_font">
         <tr>
@@ -81,7 +92,7 @@
     </table>
     <div class="payment-methods">
         <h2>Select Payment Method</h2>
-        <form id="payment-form" action="process_payment.php" method="POST">
+        <form id="payment-form" action="cash.php" method="POST">
             <label>
                 <input type="radio" name="payment_method" value="cash" required>
                 Cash on Cashier
@@ -94,9 +105,12 @@
                 <input type="radio" name="payment_method" value="touchngo">
                 Touch 'n Go
             </label><br><br> -->
+            <input type="hidden" name="subtotal" value="<?php echo $subtotal; ?>">
             <div class="form-buttons">
-                <button type="submit" class="proceed-button">Proceed to Payment</button>
-                <a href="menu.php"><button type="button" class="return-button">Return to Menu</button></a>
+                <!-- Inside the form tag -->
+                <button type="submit" class="proceed-button" <?php echo ($result->num_rows == 0) ? 'disabled' : ''; ?>>Proceed to Payment</button>
+
+                <a href="cart.php"><button type="button" class="return-button">Return to Menu</button></a>
             </div>
         </form>
     </div>

@@ -31,7 +31,7 @@
     margin-left: auto; /* Ensure it moves to the far right */
     transition: background-color 0.3s, box-shadow 0.3s;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-    
+
 }
 
 .logout-button:hover {
@@ -45,17 +45,17 @@
     justify-content: center; /* Horizontal centering */
     align-items: center; /* Vertical centering */
   }
-  
+
   #welcome-message p:first-child {
     font-size: 2.5rem; /* Increase font size for the first paragraph */
     font-weight: bold; /* Make text bold for the first paragraph */
     text-align: center;
-    margin: 25px;    
+    margin: 25px;
 
   }
-  
+
   #welcome-message p:last-child {
-    margin: 15px;    
+    margin: 15px;
     font-size: 1.8rem; /* Decrease font size for the second paragraph */
     text-align: center;
   }
@@ -346,9 +346,9 @@
 }
 
 .table_font1{
-    margin-left: 30px;
-    border-spacing: 350px 0px;
-    font-size: 10px;
+    margin-left: 50px;
+    border-spacing: 400px 0px;
+    font-size: 20px;
 
 }
 
@@ -447,6 +447,13 @@ table td {
 
 .payment-methods .form-buttons .proceed-button:hover {
     background-color: #45a049;
+}
+
+.payment-methods .form-buttons .proceed-button[disabled]  {
+    background-color: #ccc; /* Change background color */
+    color: #666; /* Change text color */
+    cursor: not-allowed; /* Change cursor */
+    opacity: 0.6; /* Adjust opacity */
 }
 
 .payment-methods .form-buttons .return-button {

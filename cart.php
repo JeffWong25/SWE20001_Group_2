@@ -1,3 +1,12 @@
+<?php
+session_start(); // Start the session
+// Check if the user is logged in
+if (!isset($_SESSION['customer'])) {
+    header("Location: loginPage.php"); // Redirect to login page if not logged in
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head class="bg">
@@ -61,8 +70,11 @@
 </head>
 <body class="menu-body">
     <div class="menu-header">
-        <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
-        <h1>BurgerBytes Products</h1>
+        <div class="menu-header-left">
+            <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
+            <h1>BurgerBytes Cart</h1>
+        </div>
+        <a href="logout.php" class="logout-button">Logout</a>
     </div>
     <div class="cart-container" style="padding-left: 50px;">
         <div class ="cart-back-and-cart" style="display: flex; align-items: center;">
