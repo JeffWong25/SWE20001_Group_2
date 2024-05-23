@@ -88,11 +88,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->close();
 
     // // Step 3: Clear the cart for the current user
-    // $clear_cart_sql = "DELETE FROM cart WHERE user_id = ?";
-    // $stmt = $dbconn->prepare($clear_cart_sql);
-    // $stmt->bind_param("i", $user_id);
-    // $stmt->execute();
-    // $stmt->close();
+    $clear_cart_sql = "DELETE FROM cart";
+    $stmt = $dbconn->prepare($clear_cart_sql);
+    $stmt->execute();
+    $stmt->close();
 
     $dbconn->close();
 
