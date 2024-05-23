@@ -47,14 +47,13 @@ if (!isset($_SESSION['customer'])) {
     </div>
         <table class="table_font">
         <tr>
-            <th colspan ="6">Order Preview</th>
+            <th colspan ="5">Order Preview</th>
         </tr>
         <tr id ='noborder'>
             <th id ='noborder'>Image</th>
             <th id ='noborder'>Food/Beverage</th>
             <th id ='noborder'>Price</th>
             <th id ='noborder'>Comment</th>
-            <th id ='noborder'></th>
         </tr>
         <?php
          $subtotal = 0; // Initialize subtotal variablesss
@@ -67,7 +66,7 @@ if (!isset($_SESSION['customer'])) {
                         <td id ='noborder'>{$row['item_name']}</td>
                         <td id='noborder'>RM {$row['price']}</td>
                         <td id ='noborder'>{$row['comment']}</td>
-                        <td id='noborder' class='minus_button' onclick='minusCart(this)' data-item-id='{$row['cart_id']}'><img src='images/minus.png' alt='MINUS'></td>
+
                       </tr>
                       ";
             }
@@ -107,12 +106,43 @@ if (!isset($_SESSION['customer'])) {
             </label><br><br> -->
             <input type="hidden" name="subtotal" value="<?php echo $subtotal; ?>">
             <div class="form-buttons">
-                <!-- Inside the form tag -->
                 <button type="submit" class="proceed-button" <?php echo ($result->num_rows == 0) ? 'disabled' : ''; ?>>Proceed to Payment</button>
 
-                <a href="cart.php"><button type="button" class="return-button">Return to Menu</button></a>
+                <a href="menu.php"><button type="button" class="return-button">Return to Menu</button></a>
             </div>
         </form>
     </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer class="menu-footer">
+        <div class="menu-footer-content">
+            <div class="menu-footer-left">
+                <p>&copy; 2024 BurgerBytes. All rights reserved.</p>
+            </div>
+            <div class="menu-footer-right">
+                <p>Contact Us: burgerbytes@gmail.com</p>
+            </div>
+        </div>
+    </footer>
     </body>
 </html>

@@ -112,10 +112,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href='logout.php' class='logout-button'>Logout</a>
         </div>
         <div class='payment-methods'>
-            <h2>Payment Successful!</h2>
-            <p>Your payment of RM {$subtotal} has been successfully processed. Please pay in cash at the cashier.</p>
+            <h2>Order Successful!</h2>
+            <p>Your order has been successfully processed. Please pay in {$subtotal} at the counter.</p>
+            <div class='form-buttons'>
             <a href='menu.php'><button class='return-button'>Return to Menu</button></a>
+            </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <footer class='menu-footer'>
+            <div class='menu-footer-content'>
+                <div class='menu-footer-left'>
+                <p>&copy; 2024 BurgerBytes. All rights reserved.</p>
+                </div>
+                <div class='menu-footer-right'>
+                <p>Contact Us: burgerbytes@gmail.com</p>
+                </div>
+            <div>
+        </footer>
     </body>
     </html>";
 }

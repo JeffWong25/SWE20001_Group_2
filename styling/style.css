@@ -467,6 +467,7 @@ table td {
     text-decoration: none;
 }
 .payment-background{
+    font-family: sans-serif;
     width: 100%;
     background-color: #f8f6ee;
     font-family: sans-serif;
