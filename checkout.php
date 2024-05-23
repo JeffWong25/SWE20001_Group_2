@@ -26,9 +26,10 @@
         <link rel="stylesheet" href="styling/style.css">
         <link rel="stylesheet2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="scripts/minus_cart.js"></script>
+        </script>
     </head>
 
-    <body class ="payment-background">
+    <body class>
     <div class="menu-header">
         <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
         <h1>BurgerBytes Products</h1>
@@ -80,19 +81,19 @@
     </table>
     <div class="payment-methods">
         <h2>Select Payment Method</h2>
-        <form action="process_payment.php" method="POST">
+        <form id="payment-form" action="process_payment.php" method="POST">
             <label>
                 <input type="radio" name="payment_method" value="cash" required>
                 Cash on Cashier
             </label><br>
-            <label>
+            <!-- <label>
                 <input type="radio" name="payment_method" value="maybank">
                 Maybank
             </label><br>
             <label>
                 <input type="radio" name="payment_method" value="touchngo">
                 Touch 'n Go
-            </label><br><br>
+            </label><br><br> -->
             <div class="form-buttons">
                 <button type="submit" class="proceed-button">Proceed to Payment</button>
                 <a href="menu.php"><button type="button" class="return-button">Return to Menu</button></a>
