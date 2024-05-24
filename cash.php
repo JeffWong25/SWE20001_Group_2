@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_email = $_SESSION['customer']; // Change this to the appropriate session variable
 
     // Fetch the user ID from the database
-    $get_user_sql = "SELECT user_id FROM customers WHERE email = ?";
+    $get_user_sql = "SELECT user_id FROM customers WHERE user_id = ?";
     $stmt_get_user = $dbconn->prepare($get_user_sql);
     $stmt_get_user->bind_param("s", $user_email);
     $stmt_get_user->execute();
