@@ -44,7 +44,7 @@
         </div>
     <?php endif; ?>
     </div>
-
+    
         <div class="menu-nav">
         <a href="#" onclick="filterTable(1)">Burgers</a>
         <a href="#" onclick="filterTable(2)">Side Dishes</a>
