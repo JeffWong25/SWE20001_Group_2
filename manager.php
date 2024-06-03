@@ -13,7 +13,7 @@
     <div class="menu-header">
         <div class="menu-header-left">
             <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
-            <h1>BurgerBytes Products</h1>
+            <h1>BurgerBytes Menu</h1>
         </div>
        <a href="logout.php" class="logout-button">Logout</a>
     </div>
