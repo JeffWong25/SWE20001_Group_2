@@ -13,7 +13,7 @@
         <h1>Edit Product</h1>
     </div>
      <?php
-            require_once("../settings.php");
+            require_once("settings.php");
             $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
             if (!$dbconn) {
                 die("Connection failed: " . mysqli_connect_error());
