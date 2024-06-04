@@ -66,7 +66,7 @@
             <label for="edit-imgpath">Image Path:</label>
             <input type="text" id="edit-imgpath" name="imgpath" value="<?php echo $item['imgpath']; ?>" required><br>
             <button type="submit">Update</button>
-            <a href="manager_menu.php">Cancel</a>
+            <a href="manager.php">Cancel</a>
         </form> 
     </div>
      <footer class="menu-footer">
