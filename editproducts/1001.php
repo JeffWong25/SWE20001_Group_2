@@ -35,10 +35,20 @@
                 }
             }
 
-            $item_id = $_GET['item_id'];
-            $sql = "SELECT item_id, item_name, imgpath, `desc`, price FROM menu_items WHERE item_id = '$item_id'";
-            $result = mysqli_query($dbconn, $sql);
-            $item = mysqli_fetch_assoc($result);  
+            if (isset($_GET['item_id'])) {
+                $item_id = $_GET['item_id'];
+                $sql = "SELECT item_id, item_name, imgpath, `desc`, price FROM menu_items WHERE item_id = '$item_id'";
+                $result = mysqli_query($dbconn, $sql);
+                if (!$result) {
+                    die("Error fetching item: " . mysqli_error($dbconn));
+                }
+                $item = mysqli_fetch_assoc($result);
+                if (!$item) {
+                    die("No item found with ID $item_id");
+                }
+            } else {
+                die("No item ID provided");
+            }
         ?>
     <div class="edit_product_page">
          <form id="edit-form" method="POST">
