@@ -31,7 +31,7 @@
                 $imgpath = $_POST['imgpath'];
                 $update_sql = "UPDATE menu_items SET item_name = '$item_name', `desc` = '$desc', price = '$price', imgpath = '$imgpath' WHERE item_id = '$item_id'";
             if (mysqli_query($dbconn, $update_sql)) {
-                    header("Location: manager_menu.php");
+                    header("Location: manager.php");
                     exit;
                 } else {
                     echo "<p class='error-message'>Error updating item: " . mysqli_error($dbconn) . "</p>";
