@@ -58,8 +58,8 @@
             echo "<span class='item-name'>" . $row['item_name'] . "</span><br>"; // Apply style to item name
             echo "<span class='item-desc'>" . $row['desc'] . "</span><br>"; // Apply style to item description
             echo "<strong class='item-price'>RM" . $row['price'] . "</strong>"; // Apply style to price
-            echo "<span class='edit_icon'><a href='#' onclick=\"href='editproducts/{$row['item_id']}.php';\"><img src='" . $row['edit_button'] . "' alt='EDIT' style='width: 30px; height: 30px;'></a></span>"; //Apply edit item
-            echo "<span class='delete_icon'><a href='#' onclick=\"href='editproducts/{$row['item_id']}.php';\"><img src='" . $row['delete_button'] . "' alt='DELETE' style='width: 30px; height: 30px;'></a></span>"; //Apply delete item
+            echo "<a href='edit_item.php?item_id=" . $row['item_id'] . "'><img src='" . $row['edit_button'] . "' alt='EDIT' style='width: 30px; height: 30px;'></a>"; // Apply edit item
+            echo "<a href='delete_item.php?item_id=" . $row['item_id'] . "'><img src='" . $row['delete_button'] . "' alt='DELETE' style='width: 30px; height: 30px;'></a>"; // Apply delete item
             echo "</td>";
             echo "</tr>";
         }
