@@ -4,7 +4,7 @@
 <head class="bg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BurgerBytes Menu</title>
+    <title>BurgerBytes Manager Menu</title>
     <link rel="stylesheet" href="styling/style.css">
     <link rel="stylesheet2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="scripts/menu.js"></script>
@@ -58,8 +58,8 @@
             echo "<span class='item-name'>" . $row['item_name'] . "</span><br>"; // Apply style to item name
             echo "<span class='item-desc'>" . $row['desc'] . "</span><br>"; // Apply style to item description
             echo "<strong class='item-price'>RM" . $row['price'] . "</strong>"; // Apply style to price
-            echo "<span class='edit_icon'><a href='#' onclick=\"href='product/{$row['item_id']}.php';\"><img src='" . $row['edit_button'] . "' alt='EDIT' style='width: 30px; height: 30px;'></a></span>"; //Apply edit item
-            echo "<span class='delete_icon'><a href='#' onclick=\"href='product/{$row['item_id']}.php';\"><img src='" . $row['delete_button'] . "' alt='DELETE' style='width: 30px; height: 30px;'></a></span>"; //Apply delete item
+            echo "<span class='edit_icon'><a href='#' onclick=\"href='editproduct/{$row['item_id']}.php';\"><img src='" . $row['edit_button'] . "' alt='EDIT' style='width: 30px; height: 30px;'></a></span>"; //Apply edit item
+            echo "<span class='delete_icon'><a href='#' onclick=\"href='editproduct/{$row['item_id']}.php';\"><img src='" . $row['delete_button'] . "' alt='DELETE' style='width: 30px; height: 30px;'></a></span>"; //Apply delete item
             echo "</td>";
             echo "</tr>";
         }
