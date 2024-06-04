@@ -10,8 +10,10 @@
 </head>
 <body class="menu-body">
     <div class="menu-header">
-         <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
-        <h1>Edit Product</h1>
+        <div class="menu-header-left">
+            <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
+            <h1>Edit Product</h1>
+        </div>
     </div>
      <?php
             require_once("settings.php");
