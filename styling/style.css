@@ -170,17 +170,15 @@
     align-items: center;
 }
 
-/*.menu-footer-left{
+.menu-footer-left{
     flex: 1;
 }
-/*.menu-footer-right {
+.menu-footer-right {
     flex: -1;
 }
 
 .menu-footer p {
-    margin: 0;
     font-size: 14px;
-
 }
 
 
