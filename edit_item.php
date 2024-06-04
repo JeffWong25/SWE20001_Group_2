@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<div class ="menu-whole-page">
 <head class="bg"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,4 +78,5 @@
         </div>
     </footer>
 </body>
+</div>
 </html>
