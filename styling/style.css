@@ -171,7 +171,7 @@
 }
 
 .menu-footer-left{
-    flex: -1;
+    flex: 1;
 }
 .menu-footer-right {
     flex: -1;
