@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BurgerBytes Menu</title>
-    <link rel="stylesheet" href="../styling/style.css">
+    <link rel="stylesheet" href="styling/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
 </head>
 <body class="menu-body">
@@ -66,6 +66,15 @@
             <a href="manager_menu.php">Cancel</a>
         </form> 
     </div>
-    <?php require("footer.php"); ?>
+     <footer class="menu-footer">
+        <div class="menu-footer-content">
+            <div class="menu-footer-left">
+                <p>&copy; 2024 BurgerBytes. All rights reserved.</p>
+            </div>
+            <div class="menu-footer-right">
+                <p>Contact Us: burgerbytes@gmail.com</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
