@@ -18,61 +18,59 @@
          <!-- To whoever is making the manager login stuff, change this href to the actual staff login interface -->
         <a href="logout.php" class="logout-button">Logout</a>
     </div>
-    <div class="content-container">
-         <div class="sidebar">
-            <a href="manager.php">View Menu</a>
-            <a href="orders.php">View Orders</a>
-        </div>
-        <?php
-            session_start();
-            if(isset($_SESSION["manager"])){
-            require_once("settings.php");
-            $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
-            if (!$dbconn) {
-                die("Connection failed: " . mysqli_connect_error());
-            }
-
-            $sql = "SELECT *  FROM staff
-            WHERE staffid = '{$_SESSION["manager"]}'";
-
-            $result = mysqli_query($dbconn, $sql);
-            $customer = $result->fetch_assoc();
-        }
-        ?>
-        <div class="menu-container">
-        <?php
-            //connect to database based on credentials in settings.php
-            require_once("settings.php");
-            $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
-            if (!$dbconn) {
-                die("Connection failed: " . mysqli_connect_error());
-            }
-            $sql = "SELECT item_id, item_name, imgpath, `desc`, price, category_id, edit_button, delete_button FROM menu_items";
-            $result = mysqli_query($dbconn, $sql);
-            //generate table
-            echo "<table id='menu-table' class='menu-table' border='1'>";
-            echo "<thead class='menu-table-head'>";
-            echo "</thead>";
-            echo "<tbody>";
-            while ($row=mysqli_fetch_assoc($result)){
-                echo "<tr data-category='" . $row['category_id'] . "'>";
-                echo "<td><img src='" . $row['imgpath'] . "'alt='" . $row['item_name'] . "'style='width: 150px; height: auto;'></td>"; // Display the image
-                echo "<td>";
-                echo "<span class='item-id'>" . $row['item_id'] . ".</span> "; // Apply style to item ID
-                echo "<span class='item-name'>" . $row['item_name'] . "</span><br>"; // Apply style to item name
-                echo "<span class='item-desc'>" . $row['desc'] . "</span><br>"; // Apply style to item description
-                echo "<strong class='item-price'>RM" . $row['price'] . "</strong>"; // Apply style to price
-                echo "<a href='edit_item.php?item_id=" . $row['item_id'] . "'><img src='" . $row['edit_button'] . "' alt='EDIT' style='width: 30px; height: 30px;'></a>"; // Apply edit item
-                echo "<a href='delete_item.php?item_id=" . $row['item_id'] . "'><img src='" . $row['delete_button'] . "' alt='DELETE' style='width: 30px; height: 30px;'></a>"; // Apply delete item
-                echo "</td>";
-                echo "</tr>";
-            }
-            echo "</tbody>";
-            echo "</table>";
-            mysqli_close($dbconn);
-        ?>
+    <div class="sidebar">
+        <a href="manager.php">View Menu</a>
+        <a href="orders.php">View Orders</a>
     </div>
-    </div>     
+    <?php
+    session_start();
+    if(isset($_SESSION["manager"])){
+        require_once("settings.php");
+        $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
+        if (!$dbconn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        $sql = "SELECT *  FROM staff
+        WHERE staffid = '{$_SESSION["manager"]}'";
+
+        $result = mysqli_query($dbconn, $sql);
+        $customer = $result->fetch_assoc();
+    }
+    ?>
+    <div class="menu-container">
+    <?php
+        //connect to database based on credentials in settings.php
+        require_once("settings.php");
+        $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
+        if (!$dbconn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        $sql = "SELECT item_id, item_name, imgpath, `desc`, price, category_id, edit_button, delete_button FROM menu_items";
+        $result = mysqli_query($dbconn, $sql);
+        //generate table
+        echo "<table id='menu-table' class='menu-table' border='1'>";
+        echo "<thead class='menu-table-head'>";
+        echo "</thead>";
+        echo "<tbody>";
+        while ($row=mysqli_fetch_assoc($result)){
+            echo "<tr data-category='" . $row['category_id'] . "'>";
+            echo "<td><img src='" . $row['imgpath'] . "'alt='" . $row['item_name'] . "'style='width: 150px; height: auto;'></td>"; // Display the image
+            echo "<td>";
+            echo "<span class='item-id'>" . $row['item_id'] . ".</span> "; // Apply style to item ID
+            echo "<span class='item-name'>" . $row['item_name'] . "</span><br>"; // Apply style to item name
+            echo "<span class='item-desc'>" . $row['desc'] . "</span><br>"; // Apply style to item description
+            echo "<strong class='item-price'>RM" . $row['price'] . "</strong>"; // Apply style to price
+            echo "<a href='edit_item.php?item_id=" . $row['item_id'] . "'><img src='" . $row['edit_button'] . "' alt='EDIT' style='width: 30px; height: 30px;'></a>"; // Apply edit item
+            echo "<a href='delete_item.php?item_id=" . $row['item_id'] . "'><img src='" . $row['delete_button'] . "' alt='DELETE' style='width: 30px; height: 30px;'></a>"; // Apply delete item
+            echo "</td>";
+            echo "</tr>";
+        }
+        echo "</tbody>";
+        echo "</table>";
+        mysqli_close($dbconn);
+    ?>
+    </div>
     <footer class="menu-footer">
         <div class="menu-footer-content">
             <div class="menu-footer-left">
