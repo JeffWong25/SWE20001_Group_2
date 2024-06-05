@@ -472,3 +472,75 @@ table td {
     background-color: #f8f6ee;
     font-family: sans-serif;
 }
+
+/*for product editing interface*/
+.edit_product_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 160px); /* Adjust height based on header/footer size */
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+#edit-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    max-width: 100%;
+}
+
+#edit-form h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#edit-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#edit-form input[type="text"],
+#edit-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#edit-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+#edit-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#edit-form button:hover {
+    background-color: #2980b9;
+}
+
+#edit-form a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #3498db;
+    text-decoration: none;
+}
+
+#edit-form a:hover {
+    text-decoration: underline;
+}
