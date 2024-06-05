@@ -18,27 +18,27 @@
          <!-- To whoever is making the manager login stuff, change this href to the actual staff login interface -->
         <a href="logout.php" class="logout-button">Logout</a>
     </div>
-    <div>
+    <div class="content-container">
          <div class="sidebar">
             <a href="manager.php">View Menu</a>
             <a href="orders.php">View Orders</a>
         </div>
-    <?php
-    session_start();
-    if(isset($_SESSION["manager"])){
-        require_once("settings.php");
-        $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
-        if (!$dbconn) {
-            die("Connection failed: " . mysqli_connect_error());
+        <?php
+            session_start();
+            if(isset($_SESSION["manager"])){
+            require_once("settings.php");
+            $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
+            if (!$dbconn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+            $sql = "SELECT *  FROM staff
+            WHERE staffid = '{$_SESSION["manager"]}'";
+
+            $result = mysqli_query($dbconn, $sql);
+            $customer = $result->fetch_assoc();
         }
-
-        $sql = "SELECT *  FROM staff
-        WHERE staffid = '{$_SESSION["manager"]}'";
-
-        $result = mysqli_query($dbconn, $sql);
-        $customer = $result->fetch_assoc();
-    }
-    ?>
+        ?>
         <div class="menu-container">
         <?php
             //connect to database based on credentials in settings.php
