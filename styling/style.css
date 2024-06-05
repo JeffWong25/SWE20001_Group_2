@@ -512,6 +512,7 @@ table td {
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box; 
 }
 
 #edit-form textarea {
