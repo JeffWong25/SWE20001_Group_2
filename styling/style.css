@@ -552,7 +552,7 @@ table td {
     width: 200px;
     height: calc(100vh - 100px); /* Adjust this value based on the header and footer height */
     position: fixed;
-    top: 70px; /* Adjust this value based on the header height */
+    top: 30px; /* Adjust this value based on the header height */
     bottom: 30px; /* Adjust this value based on the footer height */
     top: 0;
     left: 0;
