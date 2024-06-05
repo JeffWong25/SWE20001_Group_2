@@ -478,7 +478,8 @@ table td {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 160px); /* Adjust height based on header/footer size */
+    flex: 1; /* Ensure the edit page takes up remaining space */
+    width: 100%;
     padding: 20px;
     background-color: #f4f4f4;
 }
