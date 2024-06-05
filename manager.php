@@ -18,7 +18,10 @@
          <!-- To whoever is making the manager login stuff, change this href to the actual staff login interface -->
         <a href="logout.php" class="logout-button">Logout</a>
     </div>
-
+       <div class="sidebar">
+        <a href="manager.php">View Menu</a>
+        <a href="orders.php">View Orders</a>
+    </div>
     <?php
     session_start();
     if(isset($_SESSION["manager"])){
