@@ -20,6 +20,7 @@
     </div>
     <div class="sidebar">
         <a href="manager.php">View Menu</a>
+        <a href="additem.php">Add New Item</a>
         <a href="orders.php">View Orders</a>
     </div>
     <?php
