@@ -3,7 +3,7 @@
 <head class="bg"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BurgerBytes Menu</title>
+    <title>BurgerBytes Product</title>
     <link rel="stylesheet" href="../styling/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
     <script>
@@ -39,6 +39,37 @@
     </div>
     <div class="product_page">
         <?php
+            session_start();
+
+            if (isset($_SESSION["customer"])) {
+                require_once("../settings.php");
+                $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
+                if (!$dbconn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+
+                $sql = "SELECT email FROM customers WHERE user_id = '{$_SESSION["customer"]}'";
+                $result = mysqli_query($dbconn, $sql);
+                $customer = mysqli_fetch_assoc($result);
+
+             
+                if ($customer) {
+                    $customer_email = $customer["email"];
+                } else {
+                    // Handle case where customer is not found
+                    $customer_email = "Email not found";
+                }
+
+
+                mysqli_close($dbconn);
+            } else {
+                // Handle case where session is not set
+                $customer_email = "No customer logged in";
+            }
+            
+            //display customer email
+            echo "<p>Customer Email: " . htmlspecialchars($customer_email) . "</p>";
+
             require_once("../settings.php");
             $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
             if (!$dbconn) {
