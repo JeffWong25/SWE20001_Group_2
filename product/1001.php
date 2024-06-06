@@ -68,7 +68,7 @@
             }
             
             //display customer email
-            echo "<p>Customer Email: " . htmlspecialchars($customer_email) . "</p>";
+            //echo "<p>Customer Email: " . htmlspecialchars($customer_email) . "</p>";
 
             require_once("../settings.php");
             $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
