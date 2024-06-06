@@ -574,3 +574,53 @@ table td {
 .sidebar a:hover {
     color: #064579;
 }
+
+ /* for add item form */
+.add-item-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-item-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.add-item-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}       
+
+.add-item-form input[type="text"],
+.add-item-form select,
+.add-item-form textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-item-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}       
+
+.add-item-form button:hover {
+    background-color: #218838;
+}        
