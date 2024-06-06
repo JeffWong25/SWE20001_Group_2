@@ -42,12 +42,15 @@
         switch ($category) {
             case 'burger':
                 $start_id = 1000;
+                $category_id = 1;
                 break;
             case 'side_dish':
                 $start_id = 2000;
+                $category_id = 2;
                 break;
             case 'beverage':
                 $start_id = 3000;
+                $category_id = 3;
                 break;
         }
 
@@ -58,19 +61,18 @@
         $next_id = $row['max_id'] ? $row['max_id'] + 1 : $start_id;
 
         // Insert the new item into the database
-        $sql = "INSERT INTO menu_items (item_id, item_name, `desc`, price, imgpath, category_id) VALUES ('$next_id', '$item_name', '$desc', '$price', '$imgpath', '$category')";
+        $sql = "INSERT INTO menu_items (item_id, item_name, `desc`, price, imgpath, category_id, add_button, edit_button, delete_button) VALUES ('$next_id', '$item_name', '$desc', '$price', '$imgpath', '$category_id', 'images/add.png', 'images/edit.png', 'images/delete.png') ";
         if (mysqli_query($dbconn, $sql)) {
-            echo "New item added successfully";
+            echo "<div class='success-message'>New item added successfully. <a href='additem.php'>Add another item</a></div>";
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($dbconn);
         }
         mysqli_close($dbconn);
-        header("manager.php");
         exit();
     }
     ?>
     <div class="add-item-form" id="add-item-form">
-        <form method="POST" action="manager.php">
+        <form method="POST" action="">
             <h2>Add New Item</h2>
             <label for="category">Category:</label>
             <select id="category" name="category" required>
@@ -89,9 +91,6 @@
                 <button type="submit">Add Item</button>
             </form>
         </div>
-    <?php
-        
-    ?>
      <footer class="menu-footer">
         <div class="menu-footer-content">
             <div class="menu-footer-left">

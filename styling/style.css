@@ -624,3 +624,27 @@ table td {
 .add-item-form button:hover {
     background-color: #218838;
 }        
+
+/*for successful msg when item is added*/
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin: 20px auto; /* Centers the element horizontally */
+    width: fit-content; /* Makes the width just enough to fit the content */
+    text-align: center; /* Centers the text inside the element */
+}
+
+.success-message a {
+    color: #0c5460;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.success-message a hover{
+    color: #0c5460;
+    text-decoration: underline;
+    font-weight: bold;
+}
