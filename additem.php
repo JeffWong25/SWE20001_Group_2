@@ -23,24 +23,54 @@
         <a href="additem.php">Add New Item</a>
         <a href="orders.php">View Orders</a>
     </div>
-    <?php
+       <?php
     session_start();
-    if(isset($_SESSION["manager"])){
-        require_once("settings.php");
-        $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
-        if (!$dbconn) {
-            die("Connection failed: " . mysqli_connect_error());
+    require_once("settings.php");
+    $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
+    if (!$dbconn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $category = $_POST['category'];
+        $item_name = $_POST['item_name'];
+        $desc = $_POST['desc'];
+        $price = $_POST['price'];
+        $imgpath = $_POST['imgpath'];
+
+        // Determine the starting ID based on category
+        switch ($category) {
+            case 'burger':
+                $start_id = 1000;
+                break;
+            case 'side_dish':
+                $start_id = 2000;
+                break;
+            case 'beverage':
+                $start_id = 3000;
+                break;
         }
 
-        $sql = "SELECT *  FROM staff
-        WHERE staffid = '{$_SESSION["manager"]}'";
-
+        // Get the next available ID for the category
+        $sql = "SELECT MAX(item_id) AS max_id FROM menu_items WHERE item_id >= $start_id AND item_id < $start_id + 1000";
         $result = mysqli_query($dbconn, $sql);
-        $customer = $result->fetch_assoc();
+        $row = mysqli_fetch_assoc($result);
+        $next_id = $row['max_id'] ? $row['max_id'] + 1 : $start_id;
+
+        // Insert the new item into the database
+        $sql = "INSERT INTO menu_items (item_id, item_name, `desc`, price, imgpath, category_id) VALUES ('$next_id', '$item_name', '$desc', '$price', '$imgpath', '$category')";
+        if (mysqli_query($dbconn, $sql)) {
+            echo "New item added successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($dbconn);
+        }
+        mysqli_close($dbconn);
+        header("manager.php");
+        exit();
     }
     ?>
     <div class="add-item-form" id="add-item-form">
-        <form method="POST" action="add_item.php">
+        <form method="POST" action="manager.php">
             <h2>Add New Item</h2>
             <label for="category">Category:</label>
             <select id="category" name="category" required>
@@ -59,6 +89,9 @@
                 <button type="submit">Add Item</button>
             </form>
         </div>
+    <?php
+        
+    ?>
      <footer class="menu-footer">
         <div class="menu-footer-content">
             <div class="menu-footer-left">
