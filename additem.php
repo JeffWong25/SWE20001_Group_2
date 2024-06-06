@@ -23,7 +23,7 @@
         <a href="additem.php">Add New Item</a>
         <a href="orders.php">View Orders</a>
     </div>
-       <?php
+    <?php
     session_start();
     require_once("settings.php");
     $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
