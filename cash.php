@@ -79,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $item_price = $row['price']; // Assuming item price is stored in the cart table
         $subtotal_item = $item_price * $quantity; // Calculate subtotal for each item
 
+        // fix here
         $insert_order_items_sql = "INSERT INTO order_items (order_id, item_id, quantity, subtotal) VALUES (?, ?, ?, ?)";
         $stmt_insert = $dbconn->prepare($insert_order_items_sql);
         $stmt_insert->bind_param("iiid", $order_id, $item_id, $quantity, $subtotal_item);

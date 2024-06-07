@@ -9,6 +9,7 @@
     <link rel="stylesheet2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="scripts/menu.js"></script>
     <script src="scripts/search.js"></script>
+    <script src="scripts/delete_menu_item.js"></script>
 </head>
 <body class="menu-body">
     <div class="menu-header">
@@ -57,15 +58,15 @@
         echo "</thead>";
         echo "<tbody>";
         while ($row=mysqli_fetch_assoc($result)){
-            echo "<tr data-category='" . $row['category_id'] . "'>";
+            echo "<tr id='item-" . $row['item_id'] . "' data-category='" . $row['item_id'] . "'>";
             echo "<td><img src='" . $row['imgpath'] . "'alt='" . $row['item_name'] . "'style='width: 150px; height: auto;'></td>"; // Display the image
             echo "<td>";
             echo "<span class='item-id'>" . $row['item_id'] . ".</span> "; // Apply style to item ID
             echo "<span class='item-name'>" . $row['item_name'] . "</span><br>"; // Apply style to item name
             echo "<span><strong class='item-price'>RM" . $row['price'] . "</strong></span><br>"; // Apply style to price
-            echo "<span class='item-desc'>" . $row['desc'] . "</span><br>"; // Apply style to item description      
+            echo "<span class='item-desc'>" . $row['desc'] . "</span><br>"; // Apply style to item description
             echo "<a href='edit_item.php?item_id=" . $row['item_id'] . "'><img src='" . $row['edit_button'] . "' alt='EDIT' style='width: 30px; height: 30px;'></a>"; // Apply edit item
-            echo "<a href='delete_item.php?item_id=" . $row['item_id'] . "'><img src='" . $row['delete_button'] . "' alt='DELETE' style='width: 30px; height: 30px;'></a>"; // Apply delete item
+            echo "<a href='#' onclick='deleteItem(" . $row['item_id'] . ")'><img src='images/delete.png' alt='DELETE' style='width: 30px; height: 30px;'></a>";// Apply delete item
             echo "</td>";
             echo "</tr>";
         }
@@ -84,6 +85,16 @@
             </div>
         </div>
     </footer>
+
+     <!-- The Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <p>Are you sure you want to delete this item?</p>
+            <button id="confirmDelete" class="confirm-button" onclick="confirmDelete()">Confirm</button>
+            <button id="cancelDelete" class="cancel-button" onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
 </body>
 </div>
 </html>
