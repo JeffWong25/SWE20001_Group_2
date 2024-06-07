@@ -651,6 +651,17 @@ table td {
     font-weight: bold;
 }
 
+/*for error message*/
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px auto;
+    width: fit-content;
+    text-align: center;
+}
+
 #myInput {
     /* background-image: url('/css/searchicon.png'); Add a search icon to input */
     /* background-position: 10px 12px; Position the search icon */

@@ -37,6 +37,37 @@
         $price = $_POST['price'];
         $imgpath = $_POST['imgpath'];
 
+        // Validate price
+        if (!preg_match('/^\d+(\.\d{1,2})?$/', $price)) {
+        die("Invalid price format");
+        }
+
+        // Handle image upload
+        $target_dir = "images/";
+        $target_file = $target_dir . basename($imgpath["name"]);
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+        // Check if file is an image
+        $check = getimagesize($imgpath["tmp_name"]);
+        if($check === false) {
+        die("File is not an image");
+        }
+
+        // Check file size (5MB max)
+        if ($imgpath["size"] > 5000000) {
+            die("Image is too large, maximum size is 5MB");
+        }
+
+        // Allow certain file formats
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+            die("Only JPG, JPEG, PNG & GIF files are allowed");
+        }
+
+        // Move file to target directory
+        if (!move_uploaded_file($imgpath["tmp_name"], $target_file)) {
+            die("Sorry, there was an error uploading your file");
+        }
+
         // Determine the starting ID based on category
         switch ($category) {
             case 'burger':
@@ -86,7 +117,8 @@
                 <label for="price">Price:</label>
                 <input type="text" id="price" name="price" required><br>
                 <label for="imgpath">Image Path:</label>
-                <input type="text" id="imgpath" name="imgpath" required><br>
+                <input type="file" id="imgpath" name="imgpath" accept="image/*" required><br>
+                <br>
                 <button type="submit">Add Item</button>
             </form>
         </div>
