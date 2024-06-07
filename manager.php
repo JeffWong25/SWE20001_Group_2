@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styling/style.css">
     <link rel="stylesheet2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="scripts/menu.js"></script>
+    <script src="scripts/search.js"></script>
 </head>
 <body class="menu-body">
     <div class="menu-header">
@@ -39,7 +40,7 @@
         $customer = $result->fetch_assoc();
     }
     ?>
-    <script src="scripts/search.js"></script>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for id, names, price.....">
     <div class="menu-container">
     <?php
         //connect to database based on credentials in settings.php
