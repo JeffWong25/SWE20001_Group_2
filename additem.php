@@ -39,7 +39,7 @@
 
         // Validate price
         if (!preg_match('/^\d+(\.\d{1,2})?$/', $price)) {
-        die("Invalid price format");
+        die("<div class='error-message'>Invalid price format</div>");
         }
 
         // Handle image upload
@@ -50,22 +50,22 @@
         // Check if file is an image
         $check = getimagesize($imgpath["tmp_name"]);
         if($check === false) {
-        die("File is not an image");
+        die("<div class='error-message'>File is not an image</div>");
         }
 
         // Check file size (5MB max)
         if ($imgpath["size"] > 5000000) {
-            die("Image is too large, maximum size is 5MB");
+            die("<div class='error-message'>Image is too large, maximum size is 5MB</div>");
         }
 
         // Allow certain file formats
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-            die("Only JPG, JPEG, PNG & GIF files are allowed");
+            die("<div class='error-message'>Only JPG, JPEG, PNG & GIF files are allowed</div>");
         }
 
         // Move file to target directory
         if (!move_uploaded_file($imgpath["tmp_name"], $target_file)) {
-            die("Sorry, there was an error uploading your file");
+            die("<div class='error-message'>An error occured while uploading your file</div>");
         }
 
         // Determine the starting ID based on category
@@ -95,7 +95,7 @@
         if (mysqli_query($dbconn, $sql)) {
             echo "<div class='success-message'>New item added successfully. <a href='additem.php'>Add another item</a></div>";
         } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($dbconn);
+            echo "<div class='error-message'>Error: " . $sql . "<br>" . mysqli_error($dbconn) . "</div>";
         }
         mysqli_close($dbconn);
         exit();
