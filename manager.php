@@ -39,6 +39,7 @@
         $customer = $result->fetch_assoc();
     }
     ?>
+    <script src="scripts/search.js"></script>
     <div class="menu-container">
     <?php
         //connect to database based on credentials in settings.php

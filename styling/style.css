@@ -512,7 +512,7 @@ table td {
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 #edit-form textarea {
@@ -596,7 +596,7 @@ table td {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-}       
+}
 
 .add-item-form input[type="text"],
 .add-item-form select,
@@ -619,11 +619,11 @@ table td {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}       
+}
 
 .add-item-form button:hover {
     background-color: #218838;
-}        
+}
 
 /*for successful msg when item is added*/
 .success-message {
@@ -648,3 +648,17 @@ table td {
     text-decoration: underline;
     font-weight: bold;
 }
+
+#myInput {
+    /* background-image: url('/css/searchicon.png'); Add a search icon to input */
+    /* background-position: 10px 12px; Position the search icon */
+    /* background-repeat: no-repeat; Do not repeat the icon image */
+
+    width: 55%; /* Full-width */
+    margin-left: 20%;
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-top: 12px;
+    margin-bottom: 12px; /* Add some space below the input */
+  }
