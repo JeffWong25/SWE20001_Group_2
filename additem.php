@@ -35,43 +35,41 @@
         $item_name = $_POST['item_name'];
         $desc = $_POST['desc'];
         $price = $_POST['price'];
-        $imgpath = $_POST['imgpath'];
 
-        // Validate price
-        if (!preg_match('/^\d+(\.\d{1,2})?$/', $price)) {
-        die("<div class='error-message'>Invalid price format</div>");
-        }
+        if (isset($_FILES['imgpath']) && $_FILES['imgpath']['error'] == 0) {
+            $imgpath = $_FILES['imgpath'];
+            // Handle image upload
+            $target_dir = "images/";
+            $target_file = $target_dir . basename($imgpath["name"]);
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+            // Check if file is an image
+            $check = getimagesize($imgpath["tmp_name"]);
+            if($check === false) {
+                die("<div class='error-message'>File is not an image <a href='additem.php'>Readd item</a></div>");
+            }
+            // Check file size (5MB max)
+            if ($imgpath["size"] > 5000000) {
+                die("<div class='error-message'>Image is too large, maximum size is 5MB <a href='additem.php'>Readd item</a></div>");
+            }
+            // Allow certain file formats
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+                die("<div class='error-message'>Only JPG, JPEG, PNG & GIF files are allowed <a href='additem.php'>Readd item</a></div>");
+            }
+            // Move file to target directory
+            if (!move_uploaded_file($imgpath["tmp_name"], $target_file)) {
+                die("<div class='error-message'>An error occured while uploading your file <a href='additem.php'>Readd item</a></div>");
+            }
 
-        // Handle image upload
-        $target_dir = "images/";
-        $target_file = $target_dir . basename($imgpath["name"]);
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-        // Check if file is an image
-        $check = getimagesize($imgpath["tmp_name"]);
-        if($check === false) {
-        die("<div class='error-message'>File is not an image</div>");
-        }
-
-        // Check file size (5MB max)
-        if ($imgpath["size"] > 5000000) {
-            die("<div class='error-message'>Image is too large, maximum size is 5MB</div>");
-        }
-
-        // Allow certain file formats
-        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-            die("<div class='error-message'>Only JPG, JPEG, PNG & GIF files are allowed</div>");
-        }
-
-        // Move file to target directory
-        if (!move_uploaded_file($imgpath["tmp_name"], $target_file)) {
-            die("<div class='error-message'>An error occured while uploading your file</div>");
+            //concatenate
+            $imgpath = "images/" . basename($imgpath["name"]);
+        }else {
+            die("<div class='error-message'>No file was uploaded or there was an upload error: " . [$error_code] . "</div>");
         }
 
         // Determine the starting ID based on category
         switch ($category) {
             case 'burger':
-                $start_id = 1000;
+                $start_id = 1000;   
                 $category_id = 1;
                 break;
             case 'side_dish':
@@ -102,7 +100,7 @@
     }
     ?>
     <div class="add-item-form" id="add-item-form">
-        <form method="POST" action="">
+        <form method="POST" action="" enctype="multipart/form-data">
             <h2>Add New Item</h2>
             <label for="category">Category:</label>
             <select id="category" name="category" required>
@@ -115,7 +113,7 @@
                 <label for="desc">Description:</label>
                 <textarea id="desc" name="desc" required></textarea><br>
                 <label for="price">Price:</label>
-                <input type="text" id="price" name="price" required><br>
+                <input type="text" id="price" name="price" pattern="\d+(\.\d{1,2})?" title="Please enter a valid decimal number" 1000?required><br>
                 <label for="imgpath">Image Path:</label>
                 <input type="file" id="imgpath" name="imgpath" accept="image/*" required><br>
                 <br>
