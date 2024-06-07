@@ -113,6 +113,7 @@
 }
 
 .menu-table{
+    width: 800px; /* Fixed width */
     border: 1px solid #dddddd;
     border-collapse: collapse;
     margin-left: 5%; margin-right: 5%; font-size: 1.5vw;
