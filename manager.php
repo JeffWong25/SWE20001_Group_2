@@ -62,8 +62,8 @@
             echo "<td>";
             echo "<span class='item-id'>" . $row['item_id'] . ".</span> "; // Apply style to item ID
             echo "<span class='item-name'>" . $row['item_name'] . "</span><br>"; // Apply style to item name
-            echo "<span class='item-desc'>" . $row['desc'] . "</span><br>"; // Apply style to item description
-            echo "<strong class='item-price'>RM" . $row['price'] . "</strong>"; // Apply style to price
+            echo "<span><strong class='item-price'>RM" . $row['price'] . "</strong></span><br>"; // Apply style to price
+            echo "<span class='item-desc'>" . $row['desc'] . "</span><br>"; // Apply style to item description      
             echo "<a href='edit_item.php?item_id=" . $row['item_id'] . "'><img src='" . $row['edit_button'] . "' alt='EDIT' style='width: 30px; height: 30px;'></a>"; // Apply edit item
             echo "<a href='delete_item.php?item_id=" . $row['item_id'] . "'><img src='" . $row['delete_button'] . "' alt='DELETE' style='width: 30px; height: 30px;'></a>"; // Apply delete item
             echo "</td>";

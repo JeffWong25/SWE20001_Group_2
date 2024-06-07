@@ -72,8 +72,8 @@
             echo "<td>";
             echo "<span class='item-id'>" . $row['item_id'] . ".</span> "; // Apply style to item ID
             echo "<span class='item-name'>" . $row['item_name'] . "</span><br>"; // Apply style to item name
-            echo "<span class='item-desc'>" . $row['desc'] . "</span><br>"; // Apply style to item description
-            echo "<strong class='item-price'>RM" . $row['price'] . "</strong>"; // Apply style to price
+            echo "<span><strong class='item-price'>RM" . $row['price'] . "</strong><span><br>"; // Apply style to price
+            echo "<span class='item-desc'>" . $row['desc'] . "</span><br>"; // Apply style to item description         
             echo "<span class='add_icon'><a href='#' onclick=\"href='product/{$row['item_id']}.php';\"><img src='" . $row['add_button'] . "' alt='ADD' style='width: 30px; height: 30px;'></a></span>"; //Apply add item
             echo "</td>";
             echo "</tr>";

@@ -11,7 +11,7 @@ function myFunction() {
     var match = false;
     span = tr[i].getElementsByTagName("span");
     // Check all table cells for a match
-    for (j = 0; j < 2; j++) {
+    for (j = 0; j < 3; j++) {
         if (span[j]) {
             txtValue = span[j].textContent || span[j].innerText;
             if (txtValue.indexOf(filter) > -1) {
