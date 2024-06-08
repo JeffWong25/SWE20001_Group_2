@@ -24,6 +24,7 @@
         <a href="manager.php">View Menu</a>
         <a href="additem.php">Add New Item</a>
         <a href="orders.php">View Orders</a>
+        <a href="managestaff.php">Manage Staff</a>
     </div>
     <?php
     session_start();
@@ -41,7 +42,7 @@
         $customer = $result->fetch_assoc();
     }
     ?>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for id, names, price.....">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for ID, name, or price">
     <div class="menu-container">
     <?php
         //connect to database based on credentials in settings.php
