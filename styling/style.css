@@ -733,3 +733,67 @@ table td {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.add-manager-button-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.add-manager-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.add-manager-button:hover {
+    background-color: #45a049;
+}
+
+/* Form container styling */
+.add-staff-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+/* Label styling */
+.add-staff-form label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Input, select, and button styling */
+.add-staff-form input, .add-staff-form select, .add-staff-form button {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+/* Button styling */
+.add-staff-form button {
+    background-color: #45a049;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 12px 20px;
+    margin-top: 10px;
+}
+
+.add-staff-form button:hover {
+    background-color: #45a049;
+}
