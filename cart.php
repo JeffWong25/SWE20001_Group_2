@@ -1,5 +1,6 @@
 <?php
 session_start(); // Start the session
+
 // Check if the user is logged in
 if (!isset($_SESSION['customer'])) {
     header("Location: loginPage.php"); // Redirect to login page if not logged in
@@ -90,18 +91,21 @@ if (!isset($_SESSION['customer'])) {
             </tr>
             <?php
             require_once("settings.php");
-
+            
             // Connect to the database
             $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
             if (!$dbconn) {
                 die("Connection failed: " . mysqli_connect_error());
             }
 
-            // Fetch the combined data from cart and menu_items
+            // Get the user's customer ID
+            $customer_id = $_SESSION["customer"];
+
+            // Fetch the items in the cart for the logged-in user
             $sql = "SELECT cart_id, menu_items.item_name, menu_items.imgpath, menu_items.`desc`, cart.comment, minus_button
                     FROM cart
-                    JOIN menu_items
-                    ON cart.menu_items = menu_items.item_id
+                    JOIN menu_items ON cart.menu_items = menu_items.item_id
+                    WHERE cart.purchaser = '$customer_id'
                     ORDER BY cart.menu_items";
             $result = mysqli_query($dbconn, $sql);
 
