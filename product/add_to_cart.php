@@ -4,14 +4,15 @@ require_once("../settings.php");
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $item_id = $_POST['item_id'];
     $preference = $_POST['preference'];
+    $customer_email = $_POST['customer_email'];
 
     $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
     if (!$dbconn) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    $sql = "INSERT INTO cart (menu_items, add_cart_date, comment) VALUES ('$item_id', CURRENT_TIMESTAMP, '$preference')";
-    
+    $sql = "INSERT INTO cart (menu_items, add_cart_date, comment, purchaser) VALUES ('$item_id', CURRENT_TIMESTAMP, '$preference', '$customer_email')";
+
     if (mysqli_query($dbconn, $sql)) {
         echo "Item added to cart successfully";
     } else {

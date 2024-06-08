@@ -10,6 +10,7 @@
     function addToCart(element) {
         const itemId = element.getAttribute('data-item-id');
         const preference = document.getElementById('textbox_id').value;
+        const cust_gmail = element.getAttribute('data-gmail');
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'add_to_cart.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -19,7 +20,7 @@
                 window.location.href = '../menu.php';
             }
         };
-        xhr.send('item_id=' + itemId + '&preference=' + encodeURIComponent(preference));
+        xhr.send('item_id=' + itemId + '&preference=' + encodeURIComponent(preference) + '&customer_email=' + encodeURIComponent(cust_gmail));
     }
 
     // Event listener for product_page_add elements
@@ -29,8 +30,7 @@
             window.location.href = '../menu.php'; // Redirect to menu.php
         });
     });
-</script>
-
+    </script>
 </head>
 <body class="menu-body">
     <div class="menu-header">
@@ -52,22 +52,17 @@
                 $result = mysqli_query($dbconn, $sql);
                 $customer = mysqli_fetch_assoc($result);
 
-             
                 if ($customer) {
                     $customer_email = $customer["email"];
                 } else {
-                    // Handle case where customer is not found
                     $customer_email = "Email not found";
                 }
 
-
                 mysqli_close($dbconn);
             } else {
-                // Handle case where session is not set
                 $customer_email = "No customer logged in";
             }
-            
-            //display customer email
+
             //echo "<p>Customer Email: " . htmlspecialchars($customer_email) . "</p>";
 
             require_once("../settings.php");
@@ -80,11 +75,12 @@
 
             echo "<table style='margin: 20px;'>";
             if ($row = mysqli_fetch_assoc($result)) {
+                // Pass customer email to add_to_cart_table.php
+                $row['customer_email'] = $customer_email;
                 require("add_to_cart_table.php");
             }
             echo "</table>";
 
-            mysqli_close($dbconn);
         ?>
     </div>
     <?php require("footer.php"); ?>

@@ -19,6 +19,30 @@
 }
 </style>
 
+<?php
+    if (isset($_SESSION["customer"])) {
+        require_once("../settings.php");
+        $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
+        if (!$dbconn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        $sql = "SELECT email FROM customers WHERE user_id = '{$_SESSION["customer"]}'";
+        $result = mysqli_query($dbconn, $sql);
+        $customer = mysqli_fetch_assoc($result);
+
+        if ($customer) {
+            $customer_email = $customer["email"];
+        } else {
+            $customer_email = "Email not found";
+        }
+
+        mysqli_close($dbconn);
+    } else {
+        $customer_email = "No customer logged in";
+    }
+?>
+
 <tr>
     <td rowspan='3' class='product_div_img'>
         <img src='../<?php echo $row['imgpath']; ?>' alt='<?php echo $row['item_name']; ?>' style='width: 500px; height: auto; max-width: 500px; max-height: 500px;'>
@@ -40,5 +64,5 @@
 </tr>
 <tr>
     <td class='product_price'><strong>RM<?php echo $row['price']; ?></strong></td>
-    <td class='product_page_add' onclick='addToCart(this)' data-item-id='<?php echo $row['item_id']; ?>'>ADD</td>
+    <td class='product_page_add' onclick='addToCart(this)' data-item-id='<?php echo $row['item_id']; ?>' data-gmail='<?php echo $customer_email; ?>'>ADD</td>
 </tr>
