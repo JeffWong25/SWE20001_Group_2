@@ -14,11 +14,13 @@ if (!isset($_SESSION['customer'])) {
     if (!$dbconn) {
         die("Connection failed: " . mysqli_connect_error());
     }
+    $customer_id = $_SESSION["customer"];
     // Fetch cart from the database
     $sql = "SELECT cart_id, menu_items.item_name, menu_items.imgpath, menu_items.`desc`, menu_items.price, comment, minus_button
                     FROM cart
                     JOIN menu_items
                     ON cart.menu_items = menu_items.item_id
+                    WHERE cart.purchaser = '$customer_id'
                     ORDER BY cart.menu_items";
     $sql2 ="SELECT item_name, imgpath, 'desc' FROM menu_items";
     //$sql1 = "SELECT subtotal FROM order_items";
@@ -34,7 +36,6 @@ if (!isset($_SESSION['customer'])) {
         <link rel="stylesheet" href="styling/style.css">
         <link rel="stylesheet2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="scripts/minus_cart.js"></script>
-        </script>
     </head>
 
     <body class = "payment-background">
@@ -88,7 +89,6 @@ if (!isset($_SESSION['customer'])) {
             $dbconn->close();
             ?>
         </table>
-    </table>
     <div class="payment-methods">
         <h2>Select Payment Method</h2>
         <form id="payment-form" action="cash.php" method="POST">

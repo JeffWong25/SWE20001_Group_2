@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $subtotal = isset($_POST['subtotal']) ? $_POST['subtotal'] : 0.0;
     $payment_method = $_POST['payment_method'];
 
-    // // Debugging output
+    // Debugging output
     // echo "User ID: " . $user_id . "<br>";
     // echo "Subtotal: " . $subtotal . "<br>";
     // echo "Payment Method: " . $payment_method . "<br>";
@@ -60,13 +60,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $order_id = $stmt->insert_id;
     $stmt->close();
 
-    // Step 2: Insert into order_items table
+    // Step 2: Insert into ordered_item table
     $select_cart_sql = "
-        SELECT oi.item_id, oi.quantity, mi.price
-        FROM order_items oi
-        JOIN menu_items mi ON oi.item_id = mi.item_id
-        JOIN orders o ON oi.order_id = o.order_id
-        WHERE o.user_id = ?
+        SELECT c.menu_items AS item_id, m.item_name AS product_name
+        FROM cart c
+        JOIN menu_items m ON c.menu_items = m.item_id
+        WHERE c.purchaser = ?
     ";
     $stmt = $dbconn->prepare($select_cart_sql);
     $stmt->bind_param("i", $user_id);
@@ -74,23 +73,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $stmt->get_result();
 
     while ($row = $result->fetch_assoc()) {
-        $item_id = $row['menu_items'];
-        $quantity = 1; // Assuming quantity is 1 per cart item
-        $item_price = $row['price']; // Assuming item price is stored in the cart table
-        $subtotal_item = $item_price * $quantity; // Calculate subtotal for each item
+        $item_id = $row['item_id'];
+        $product_name = $row['product_name'];
 
-        // fix here
-        $insert_order_items_sql = "INSERT INTO order_items (order_id, item_id, quantity, subtotal) VALUES (?, ?, ?, ?)";
-        $stmt_insert = $dbconn->prepare($insert_order_items_sql);
-        $stmt_insert->bind_param("iiid", $order_id, $item_id, $quantity, $subtotal_item);
+        $insert_ordered_item_sql = "INSERT INTO ordered_item (user_id, product, product_name) VALUES (?, ?, ?)";
+        $stmt_insert = $dbconn->prepare($insert_ordered_item_sql);
+        $stmt_insert->bind_param("iis", $user_id, $item_id, $product_name);
         $stmt_insert->execute();
         $stmt_insert->close();
     }
     $stmt->close();
 
-    // // Step 3: Clear the cart for the current user
-    $clear_cart_sql = "DELETE FROM cart";
+    // Step 3: Clear the cart for the current user
+    $clear_cart_sql = "DELETE FROM cart WHERE purchaser = ?";
     $stmt = $dbconn->prepare($clear_cart_sql);
+    $stmt->bind_param("i", $user_id);
     $stmt->execute();
     $stmt->close();
 
@@ -151,4 +148,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </html>";
 }
 ?>
-

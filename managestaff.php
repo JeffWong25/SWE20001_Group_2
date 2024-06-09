@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styling/style.css">
     <link rel="stylesheet2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="scripts/menu.js"></script>
-    <script src="scripts/search.js"></script>
+    <script src="scripts/search_staff.js"></script>
     <script src="scripts/delete_menu_item.js"></script>
 </head>
 <body class="menu-body">
@@ -42,7 +42,10 @@
         $customer = $result->fetch_assoc();
     }
     ?>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for ID, name, or price">
+    <input type="text" id="myInput" onkeyup="searchStaff()" placeholder="Search for ID, name, or price">
+    <div class="add-manager-button-container">
+            <button onclick="location.href='addmanager.php'" class="add-manager-button">Add New Manager</button>
+        </div>
     <div class="menu-container">
     <?php
         //connect to database based on credentials in settings.php
@@ -51,7 +54,7 @@
         if (!$dbconn) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        $sql = "SELECT item_id, item_name, imgpath, `desc`, price, category_id, edit_button, delete_button FROM menu_items";
+        $sql = "SELECT staffid, fname, lname, email, access_level FROM staff";
         $result = mysqli_query($dbconn, $sql);
         //generate table
         echo "<table id='menu-table' class='menu-table' border='1'>";
@@ -59,16 +62,12 @@
         echo "</thead>";
         echo "<tbody>";
         while ($row=mysqli_fetch_assoc($result)){
-            echo "<tr id='item-" . $row['item_id'] . "' data-category='" . $row['item_id'] . "'>";
-            echo "<td><img src='" . $row['imgpath'] . "'alt='" . $row['item_name'] . "'style='width: 150px; height: auto;'></td>"; // Display the image
-            echo "<td>";
-            echo "<span class='item-id'>" . $row['item_id'] . ".</span> "; // Apply style to item ID
-            echo "<span class='item-name'>" . $row['item_name'] . "</span><br>"; // Apply style to item name
-            echo "<span><strong class='item-price'>RM" . $row['price'] . "</strong></span><br>"; // Apply style to price
-            echo "<span class='item-desc'>" . $row['desc'] . "</span><br>"; // Apply style to item description
-            echo "<a href='edit_item.php?item_id=" . $row['item_id'] . "'><img src='" . $row['edit_button'] . "' alt='EDIT' style='width: 30px; height: 30px;'></a>"; // Apply edit item
-            echo "<a href='#' onclick='deleteItem(" . $row['item_id'] . ")'><img src='images/delete.png' alt='DELETE' style='width: 30px; height: 30px;'></a>";// Apply delete item
-            echo "</td>";
+            echo"<tr>";
+            echo "<td>" . $row['staffid'] . "</td> ";
+            echo "<td>". $row['fname'] . "</td> ";
+            echo "<td>" . $row['lname'] ."</td> ";
+            echo "<td>" . $row['email'] . "</td> ";
+            echo "<td>" . $row['access_level'] . "</td> ";
             echo "</tr>";
         }
         echo "</tbody>";
