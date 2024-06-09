@@ -213,6 +213,7 @@
                 <input type="file" id="imgpath" name="imgpath" accept="image/*" required><br>
                 <br>
                 <button type="submit">Add Item</button>
+                <button class="canceladd-button" onclick="window.location.href='manager.php';">Cancel</button>
             </form>
         </div>
      <footer class="menu-footer">
