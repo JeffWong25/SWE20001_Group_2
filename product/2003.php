@@ -80,7 +80,6 @@
                 require("add_to_cart_table.php");
             }
             echo "</table>";
-
         ?>
     </div>
     <?php require("footer.php"); ?>
