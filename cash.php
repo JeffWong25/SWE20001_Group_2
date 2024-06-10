@@ -39,11 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $subtotal = isset($_POST['subtotal']) ? $_POST['subtotal'] : 0.0;
     $payment_method = $_POST['payment_method'];
 
-    // Debugging output
-    // echo "User ID: " . $user_id . "<br>";
-    // echo "Subtotal: " . $subtotal . "<br>";
-    // echo "Payment Method: " . $payment_method . "<br>";
-
     // Step 1: Insert into orders table
     $orderdate = date('Y-m-d H:i:s');
     $status = 'PENDING';
@@ -55,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Error: " . $stmt->error;
         exit;
     }
-
+    
     // Get the newly inserted order ID
     $order_id = $stmt->insert_id;
     $stmt->close();
@@ -76,9 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $item_id = $row['item_id'];
         $product_name = $row['product_name'];
 
-        $insert_ordered_item_sql = "INSERT INTO ordered_item (user_id, product, product_name) VALUES (?, ?, ?)";
+        $insert_ordered_item_sql = "INSERT INTO ordered_item (order_id, user_id, product, product_name) VALUES (?, ?, ?, ?)";
         $stmt_insert = $dbconn->prepare($insert_ordered_item_sql);
-        $stmt_insert->bind_param("iis", $user_id, $item_id, $product_name);
+        $stmt_insert->bind_param("iiis", $order_id, $user_id, $item_id, $product_name);
         $stmt_insert->execute();
         $stmt_insert->close();
     }
