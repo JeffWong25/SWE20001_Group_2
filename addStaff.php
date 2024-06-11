@@ -6,7 +6,6 @@
     <title>BurgerBytes Add Staff</title>
     <link rel="stylesheet" href="styling/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="scripts/addmanager.js"></script>
 </head>
 <body class="menu-body">
     <div class="menu-header">
@@ -21,10 +20,11 @@
         <a href="additem.php">Add New Item</a>
         <a href="orders.php">View Orders</a>
         <a href="managestaff.php">Manage Staff</a>
-        <a href="addmanager.php">Add Staff</a>
     </div>
     <h2><center>Add New Staff Member</center></h2>
-        <form id="addManagerForm" class="add-staff-form">
+        <form id="addManagerForm" class="add-staff-form" method="POST" action="process_add_staff.php">
+            <label for="staffid">Staff ID:</label><br>
+            <input type="text" id="staffid" name="staffid" required><br>
             <label for="fname">First Name:</label><br>
             <input type="text" id="fname" name="fname" required><br>
             <label for="lname">Last Name:</label><br>
