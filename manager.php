@@ -26,6 +26,7 @@
         <a href="orders.php">View Orders</a>
         <a href="managestaff.php">Manage Staff</a>
         <a href="addstaff.php">Add Staff</a>
+        <a href="ManagerOrder.php">View Orders</a>
     </div>
     <?php
     session_start();

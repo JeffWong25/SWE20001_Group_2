@@ -82,7 +82,10 @@
         echo "</table>";
         mysqli_close($dbconn);
     ?>
-    <div class="menu_cart"><a href="cart.php"><img src="images/basket.png" alt="Cart"></a></div>
+        <div class="menu_icon">
+            <div class="menu_cart"><a href="cart.php"><img src="images/basket.png" alt="Cart"></a></div>
+            <div class="menu_orders"><a href="customer_order.php"><img src="images/view-details-64.png" alt="view order details"></a></div>
+        </div>
     </div>
     <footer class="menu-footer">
         <div class="menu-footer-content">

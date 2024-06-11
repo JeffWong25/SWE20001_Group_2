@@ -37,36 +37,34 @@ if (!isset($_SESSION['customer'])) {
 
     </script>
     <style>
+        .checkout-button {
+            width: 100%;
+            font-size: 25px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #F81B15, #FDC400);
+            color: #fff;
+            padding: 10px;
+            border: none;
+            margin: 10px 0px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: center;
+            text-decoration: none; /* Ensure the link text has no underline */
+            display: inline-block; /* Ensure the button is displayed inline */
+        }
 
-.checkout-button {
-    width: 100%;
-    font-size: 25px;
-    font-weight: bold;
-    background: linear-gradient(45deg, #F81B15, #FDC400);
-    color: #fff;
-    padding: 10px;
-    border: none;
-    margin: 10px 0px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: 0.2s;
-    text-align: center;
-    text-decoration: none; /* Ensure the link text has no underline */
-    display: inline-block; /* Ensure the button is displayed inline */
-}
+        .checkout-button:active {
+            transform: scale(0.9);
+        }
 
-.checkout-button:active {
-    transform: scale(0.9);
-}
-
-.checkout-button a {
-    color: #fff; /* Ensure the link text is white */
-    text-decoration: none; /* Ensure the link text has no underline */
-    display: block; /* Ensure the link fills the button */
-    width: 100%; /* Ensure the link takes full width */
-    height: 100%; /* Ensure the link takes full height */
-}
-
+        .checkout-button a {
+            color: #fff; /* Ensure the link text is white */
+            text-decoration: none; /* Ensure the link text has no underline */
+            display: block; /* Ensure the link fills the button */
+            width: 100%; /* Ensure the link takes full width */
+            height: 100%; /* Ensure the link takes full height */
+        }
     </style>
 </head>
 <body class="menu-body">
@@ -82,45 +80,47 @@ if (!isset($_SESSION['customer'])) {
             <a href="menu.php"><img src="images\previous.png" id="previous_button" alt="BACK" style="padding-right: 10px;"></a>
             <h1>Your Cart</h1>
         </div>
-        <table  style="margin: 20px; border= 1; " >
-            <tr>
-                <th>Item Name</th>
-                <th>Image</th>
-                <th>Description</th>
-                <th>Comment</th>
-            </tr>
-            <?php
-            require_once("settings.php");
-            
-            // Connect to the database
-            $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
-            if (!$dbconn) {
-                die("Connection failed: " . mysqli_connect_error());
+        <?php
+        require_once("settings.php");
+        
+        // Connect to the database
+        $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
+        if (!$dbconn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        // Get the user's customer ID
+        $customer_id = $_SESSION["customer"];
+
+        // Fetch the items in the cart for the logged-in user
+        $sql = "SELECT cart_id, menu_items.item_name, menu_items.imgpath, menu_items.`desc`, cart.comment, minus_button
+                FROM cart
+                JOIN menu_items ON cart.menu_items = menu_items.item_id
+                WHERE cart.purchaser = '$customer_id'
+                ORDER BY cart.menu_items";
+        $result = mysqli_query($dbconn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            echo '<table style="margin: 20px; border= 1;">';
+            echo '<tr>
+                    <th>Item Name</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Comment</th>
+                  </tr>';
+            while ($row = mysqli_fetch_assoc($result)) {
+                require("cart_table.php");
             }
+            echo '</table>';
+        } else {
+            echo "<p>Your cart is empty</p>";
+        }
 
-            // Get the user's customer ID
-            $customer_id = $_SESSION["customer"];
-
-            // Fetch the items in the cart for the logged-in user
-            $sql = "SELECT cart_id, menu_items.item_name, menu_items.imgpath, menu_items.`desc`, cart.comment, minus_button
-                    FROM cart
-                    JOIN menu_items ON cart.menu_items = menu_items.item_id
-                    WHERE cart.purchaser = '$customer_id'
-                    ORDER BY cart.menu_items";
-            $result = mysqli_query($dbconn, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    require("cart_table.php");
-                }
-            } else {
-                echo "<tr><td colspan='4'>Your cart is empty</td></tr>";
-            }
-
-            mysqli_close($dbconn);
-            ?>
-        </table>
-        <button class="checkout-button"><a href="checkout.php">Checkout</a></button>
+        mysqli_close($dbconn);
+        ?>
+        <?php if (mysqli_num_rows($result) > 0): ?>
+            <button class="checkout-button"><a href="checkout.php">Checkout</a></button>
+        <?php endif; ?>
     </div>
     <?php require("product/footer.php"); ?>
 </body>
