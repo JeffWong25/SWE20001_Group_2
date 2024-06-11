@@ -49,7 +49,7 @@
                     SELECT o.order_id, o.user_id, o.orderdate, o.status, oi.order_id AS oi_order_id, oi.product_name, oi.product AS oi_product_id
                     FROM orders o
                     LEFT JOIN ordered_item oi ON o.order_id = oi.order_id
-                    WHERE o.status = 'PENDING'
+                    WHERE o.status = 'COMPLETE'
                     ORDER BY o.order_id, oi.product
                 ";
                 $result = mysqli_query($dbconn, $sql);
@@ -75,7 +75,7 @@
                                     <td>{$row['user_id']}</td>
                                     <td>{$row['orderdate']}</td>
                                     <td>
-                                        <form method='POST' action='kitchen.php'>
+                                        <form method='POST' action='kitchen1    .php'>
                                             <select name='new_status'>
                                                 <option value='PENDING' " . ($row['status'] == 'PENDING' ? 'selected' : '') . ">PENDING</option>
                                                 <option value='COMPLETE' " . ($row['status'] == 'COMPLETE' ? 'selected' : '') . ">COMPLETE</option>
