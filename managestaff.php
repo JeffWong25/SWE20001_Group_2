@@ -25,7 +25,6 @@
         <a href="additem.php">Add New Item</a>
         <a href="orders.php">View Orders</a>
         <a href="managestaff.php">Manage Staff</a>
-        <a href="addstaff.php">Add Staff</a>
     </div>
     <?php
     session_start();
@@ -43,9 +42,9 @@
         $customer = $result->fetch_assoc();
     }
     ?>
-    <input type="text" id="myInput" onkeyup="searchStaff()" placeholder="Search for ID, name, or price">
-    <div class="add-manager-button-container">
-            <button onclick="location.href='addmanager.php'" class="add-manager-button">Add New Manager</button>
+    <input type="text" id="myInput" onkeyup="searchStaff()" placeholder="Search for ID, name, or role">
+    <div class="add-staff-button-container">
+            <button onclick="location.href='addStaff.php'" class="add-staff-button">Add New Staff</button>
         </div>
     <div class="menu-container">
     <?php
@@ -57,12 +56,19 @@
         }
         $sql = "SELECT staffid, fname, lname, email, access_level FROM staff";
         $result = mysqli_query($dbconn, $sql);
-        //generate table
         echo "<table id='menu-table' class='menu-table' border='1'>";
         echo "<thead class='menu-table-head'>";
         echo "</thead>";
         echo "<tbody>";
+        echo"<tr>";
+        echo "<td> Staff ID </td> ";
+        echo "<td> First Name </td> ";
+        echo "<td> Last Name </td> ";
+        echo "<td> Email </td> ";
+        echo "<td> Role </td> ";
+        echo"</tr>";
         while ($row=mysqli_fetch_assoc($result)){
+
             echo"<tr>";
             echo "<td>" . $row['staffid'] . "</td> ";
             echo "<td>". $row['fname'] . "</td> ";
@@ -88,11 +94,11 @@
     </footer>
 
      <!-- The Modal -->
-    <div id="confirmationModal" class="modal">
+     <div id="confirmationModal" class="modal">
         <div class="modal-content">
             <span class="close-button" onclick="closeModal()">&times;</span>
-            <p>Are you sure you want to delete this item?</p>
-            <button id="confirmDelete" class="confirm-button" onclick="confirmDelete()">Confirm</button>
+            <p>Are you sure you want to delete this staff member?</p>
+            <button id="confirmDelete" class="confirm-button" onclick="deleteStaff()">Confirm</button>
             <button id="cancelDelete" class="cancel-button" onclick="closeModal()">Cancel</button>
         </div>
     </div>

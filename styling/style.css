@@ -628,20 +628,20 @@ table td {
 }
 
 .add-item-form .canceladd-button {
-    background-color: #f44336; 
-    padding: 10px 20px; 
-    text-align: center; 
+    background-color: #f44336;
+    padding: 10px 20px;
+    text-align: center;
     text-decoration: none;
-    display: inline-block; 
+    display: inline-block;
     font-size: 16px;
-    margin: 10px 2px; 
-    cursor: pointer; 
+    margin: 10px 2px;
+    cursor: pointer;
     border-radius: 5px;
-    transition-duration: 0.4s; 
+    transition-duration: 0.4s;
 }
 
 .add-item-form .canceladd-button:hover {
-    background-color: #b33128; 
+    background-color: #b33128;
 }
 
 
@@ -753,12 +753,12 @@ table td {
     cursor: pointer;
 }
 
-.add-manager-button-container {
+.add-staff-button-container {
     margin-bottom: 20px;
     text-align: center;
 }
 
-.add-manager-button {
+.add-staff-button {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -772,7 +772,7 @@ table td {
     border-radius: 12px;
 }
 
-.add-manager-button:hover {
+.add-staff-button:hover {
     background-color: #45a049;
 }
 
