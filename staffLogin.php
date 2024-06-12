@@ -39,7 +39,7 @@
                         header("Location: manager.php");
                         break;
                     case 'kitchen':
-                        header("Location: staffViewOrder.php");
+                        header("Location: kitchen.php");
                         break;
                     case 'cashier':
                         header("Location: staffViewOrder.php");
