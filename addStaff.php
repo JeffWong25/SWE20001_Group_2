@@ -13,7 +13,7 @@
             <a><img src="images/vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
             <h1>BurgerBytes Add Staff</h1>
         </div>
-        <a href="logout.php" class="logout-button">Logout</a>
+        <a href="staffLogout.php" class="logout-button">Logout</a>
     </div>
     <div class="sidebar">
         <a href="manager.php">View Menu</a>
