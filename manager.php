@@ -17,8 +17,7 @@
             <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
             <h1>BurgerBytes Menu</h1>
         </div>
-         <!-- To whoever is making the manager login stuff, change this href to the actual staff login interface -->
-        <a href="logout.php" class="logout-button">Logout</a>
+        <a href="staffLogout.php" class="logout-button">Logout</a>
     </div>
     <div class="sidebar">
         <a href="manager.php">View Menu</a>
