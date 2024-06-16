@@ -16,7 +16,14 @@
         </div>
         <a href="staffLogout.php" class="logout-button">Logout</a>
     </div>
-
+    <div class="sidebar">
+        <a href="manager.php">View Menu</a>
+        <a href="additem.php">Add New Item</a>
+        <a href="viewOrderHistory.php">View Orders</a>
+        <a href="managestaff.php">Manage Staff</a>
+        <a href="addstaff.php">Add Staff</a>
+        <a href="ManagerOrder.php">View Orders</a>
+    </div>
     <div class="menu-container">
         <div>
             <div class="menu-nav">

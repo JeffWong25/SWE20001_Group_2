@@ -16,10 +16,14 @@
         <a href="staffLogout.php" class="logout-button">Logout</a>
     </div>
     <div class="sidebar">
+    <div class="sidebar">
         <a href="manager.php">View Menu</a>
         <a href="additem.php">Add New Item</a>
-        <a href="orders.php">View Orders</a>
+        <a href="viewOrderHistory.php">View Orders</a>
         <a href="managestaff.php">Manage Staff</a>
+        <a href="addstaff.php">Add Staff</a>
+        <a href="ManagerOrder.php">View Orders</a>
+    </div>
     </div>
     <h2><center>Add New Staff Member</center></h2>
         <form id="addManagerForm" class="add-staff-form" method="POST" action="process_add_staff.php">
