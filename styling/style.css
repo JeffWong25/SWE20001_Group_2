@@ -334,6 +334,7 @@
 /*order preview*/
 .table_font{
     margin:auto;
+    font-family: sans-serif;
     border-spacing: 50px 10px;
     font-size: 20px;
 
@@ -341,6 +342,7 @@
 
 .table_font td {
     border: 1px solid #ddd;
+    font-family: sans-serif;
     padding: 8px;
     text-align: left;
 }

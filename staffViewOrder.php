@@ -27,7 +27,8 @@ $result = $dbconn->query($sql);
         <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
         <h1>BurgerBytes</h1>
     </div>
-        <h1>Order List</h1>
+    <div>
+     <h1>Order List</h1>
         <table class="table_font">
         <tr>
             <th>Order ID</th>
@@ -53,33 +54,16 @@ $result = $dbconn->query($sql);
         $dbconn->close();
         ?>
     </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
+    <footer class="menu-footer">
+        <div class="menu-footer-content">
+            <div class="menu-footer-left">
+                <p>&copy; 2024 BurgerBytes. All rights reserved.</p>
+            </div>
+            <div class="menu-footer-right">
+                <p>Contact Us: burgerbytes@gmail.com</p>
+            </div>
+        </div>
+    </footer>
     </body>
 </html>
