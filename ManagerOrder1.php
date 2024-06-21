@@ -99,7 +99,6 @@
             ?>
         </div>
     </div>
-
     <footer class="menu-footer">
         <div class="menu-footer-content">
             <div class="menu-footer-left">

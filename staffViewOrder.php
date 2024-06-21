@@ -22,48 +22,51 @@ $result = $dbconn->query($sql);
         <link rel="stylesheet2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="scripts/menu.js"></script>
     </head>
-    <body>
-    <div class="menu-header">
-        <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
-        <h1>BurgerBytes</h1>
-    </div>
-    <div>
-     <h1 class="table_font">Order List</h1>
-        <table>
-        <tr>
-            <th>Order ID</th>
-            <th>User ID</th>
-            <th>Total Amount</th>
-            <th>Order Date</th>
-            <th>Status</th>
-        </tr>
-        <?php
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                echo "<tr>
-                        <td>{$row['order_id']}</td>
-                        <td>{$row['user_id']}</td>
-                        <td>{$row['total_amt']}</td>
-                        <td>{$row['orderdate']}</td>
-                        <td>{$row['status']}</td>
-                      </tr>";
-            }
-        } else {
-            echo "<tr><td colspan='6'>No orders found</td></tr>";
-        }
-        $dbconn->close();
-        ?>
-    </table>
-    </div>
-    <footer class="menu-footer">
-        <div class="menu-footer-content">
-            <div class="menu-footer-left">
-                <p>&copy; 2024 BurgerBytes. All rights reserved.</p>
+    <body class="menu-body">
+        <div class="menu-header">
+            <div class="menu-header-left">
+                <a><img src="images\vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
+                <h1>BurgerBytes Menu</h1>
             </div>
-            <div class="menu-footer-right">
-                <p>Contact Us: burgerbytes@gmail.com</p>
-            </div>
+            <a href="staffLogout.php" class="logout-button">Logout</a>
         </div>
-    </footer>
+        <div>
+            <h1>Order List</h1>
+            <table class="table_font">
+            <tr>
+                <th>Order ID</th>
+                <th>User ID</th>
+                <th>Total Amount</th>
+                <th>Order Date</th>
+                <th>Status</th>
+            </tr>
+            <?php
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>
+                            <td>{$row['order_id']}</td>
+                            <td>{$row['user_id']}</td>
+                            <td>{$row['total_amt']}</td>
+                            <td>{$row['orderdate']}</td>
+                            <td>{$row['status']}</td>
+                        </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='6'>No orders found</td></tr>";
+            }
+            $dbconn->close();
+            ?>
+        </table>
+        </div>
+        <footer class="menu-footer">
+            <div class="menu-footer-content">
+                <div class="menu-footer-left">
+                    <p>&copy; 2024 BurgerBytes. All rights reserved.</p>
+                </div>
+                <div class="menu-footer-right">
+                    <p>Contact Us: burgerbytes@gmail.com</p>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
