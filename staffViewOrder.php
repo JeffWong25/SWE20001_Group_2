@@ -1,12 +1,13 @@
 <?php
 session_start();
-require_once("settings.php");
-//connection
-$dbconn = mysqli_connect($host, $user, $pwd, $sql_db);
-if (!$dbconn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
+if (isset($_SESSION["staff"]) && $_SESSION["accesslevel"] === 'cashier'){
+    require_once("settings.php");
+    //connection
+    $dbconn = mysqli_connect($host, $user, $pwd, $sql_db);
+    if (!$dbconn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+}   
 // Fetch orders from the database
 $sql = "SELECT order_id, user_id, total_amt, orderdate, status FROM orders";
 $result = $dbconn->query($sql);
