@@ -83,11 +83,11 @@
                                     <td>{$row['user_id']}</td>
                                     <td>{$row['orderdate']}</td>
                                     <td>
-                                        <form method='POST' action='kitchen.php'>
+                                        <form method='POST' action='ManagerOrder.php'>
                                             <select name='new_status'>
                                                 <option value='PENDING' " . ($row['status'] == 'PENDING' ? 'selected' : '') . ">PENDING</option>
                                                 <option value='COMPLETE' " . ($row['status'] == 'COMPLETE' ? 'selected' : '') . ">COMPLETE</option>
-                                                <option value='COMPLETE' " . ($row['status'] == 'CANCELLED' ? 'selected' : '') . ">COMPLETE</option>
+                                                <option value='CANCELLED' " . ($row['status'] == 'CANCELLED' ? 'selected' : '') . ">CANCELLED</option>
                                             </select>
                                             <input type='hidden' name='order_id' value='{$row['order_id']}'>
                                             <button type='submit'>Update</button>
