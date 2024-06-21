@@ -31,7 +31,7 @@ $result = $dbconn->query($sql);
             <a href="staffLogout.php" class="logout-button">Logout</a>
         </div>
         <div>
-            <h1>Order List</h1>
+            <h1><center>Order List</center></h1>
             <table class="table_font">
             <tr>
                 <th>Order ID</th>
@@ -58,15 +58,15 @@ $result = $dbconn->query($sql);
             ?>
         </table>
         </div>
-        <footer class="menu-footer">
-            <div class="menu-footer-content">
-                <div class="menu-footer-left">
-                    <p>&copy; 2024 BurgerBytes. All rights reserved.</p>
-                </div>
-                <div class="menu-footer-right">
-                    <p>Contact Us: burgerbytes@gmail.com</p>
-                </div>
+    <footer class="menu-footer">
+        <div class="menu-footer-content">
+            <div class="menu-footer-left">
+                <p>&copy; 2024 BurgerBytes. All rights reserved.</p>
             </div>
-        </footer>
-    </body>
+            <div class="menu-footer-right">
+                <p>Contact Us: burgerbytes@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>
