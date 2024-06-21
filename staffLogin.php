@@ -23,9 +23,7 @@
 
         // Check if a user with the given staff ID exists and if the password matches
         if ($user) {
-            //CHANGE BACK TO THIS ONVE IMPLEMENT HASHED PASSWORD
-           // if (password_verify($_POST["password"], $user["password"])) 
-           if ($_POST["password"] === $user["password"]){
+           if (password_verify($_POST["password"], $user["password"])){
                 session_start();
                 // Regenerate session ID to help prevent fixation attacks
                 session_regenerate_id();
