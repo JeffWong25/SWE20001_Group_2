@@ -29,7 +29,7 @@
     </div>
     <?php
     session_start();
-    if(isset($_SESSION["manager"])){
+    if (isset($_SESSION["staff"]) && $_SESSION["accesslevel"] === 'manager'){
         require_once("settings.php");
         $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
         if (!$dbconn) {
