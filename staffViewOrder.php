@@ -28,8 +28,8 @@ $result = $dbconn->query($sql);
         <h1>BurgerBytes</h1>
     </div>
     <div>
-     <h1>Order List</h1>
-        <table class="table_font">
+     <h1 class="table_font">Order List</h1>
+        <table>
         <tr>
             <th>Order ID</th>
             <th>User ID</th>
