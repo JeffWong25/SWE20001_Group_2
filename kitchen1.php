@@ -75,7 +75,7 @@
                                     <td>{$row['user_id']}</td>
                                     <td>{$row['orderdate']}</td>
                                     <td>
-                                        <form method='POST' action='kitchen1    .php'>
+                                        <form method='POST' action='kitchen1.php'>
                                             <select name='new_status'>
                                                 <option value='PENDING' " . ($row['status'] == 'PENDING' ? 'selected' : '') . ">PENDING</option>
                                                 <option value='COMPLETE' " . ($row['status'] == 'COMPLETE' ? 'selected' : '') . ">COMPLETE</option>

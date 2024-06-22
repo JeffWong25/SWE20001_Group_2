@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION["customer"])) { //will change back to manager after the staff login page implemented
+if (isset($_SESSION["manager"])) { //will change back to manager after the staff login page implemented
     if (isset($_GET['item_id'])) {
         $item_id = $_GET['item_id'];
         require_once("settings.php");

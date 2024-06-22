@@ -209,7 +209,7 @@
                 <textarea id="desc" name="desc" required></textarea><br>
                 <label for="price">Price:</label>
                 <input type="text" id="price" name="price" pattern="\d+(\.\d{1,2})?" title="Please enter a valid decimal number" 1000?required><br>
-                <label for="imgpath">Image Path:</label>
+                <label for="imgpath">Image:</label>
                 <input type="file" id="imgpath" name="imgpath" accept="image/*" required><br>
                 <br>
                 <button type="submit">Add Item</button>
