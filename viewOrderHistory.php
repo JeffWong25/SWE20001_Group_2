@@ -6,62 +6,7 @@
     <title>BurgerBytes Manager Menu</title>
     <link rel="stylesheet" href="styling/style.css">
     <link rel="stylesheet2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="scripts/viewHistory.js"></script>
-    <style>
-        /* Center the order history container */
-        .order-history-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 40px auto;
-            width: 100%;
-            max-width: 800px;
-        }
-        .filter-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
-            width: 100%;
-        }
-        .filter-section form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center;
-            width: 100%;
-        }
-        .filter-section form div {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            width: 100%;
-        }
-        .apply-filters-btn {
-            margin-top: 10px;
-        }
-        .order-history-table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: white;
-            border: 1px solid #dddddd;
-            margin-bottom: 40px; /* Add space below the table */
-        }
-        .order-history-table th, .order-history-table td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-        #start_date, #end_date {
-            width: 55%; /* Full-width */
-            margin-left: 20%;
-            font-size: 16px; /* Increase font-size */
-            padding: 12px 20px 12px 40px; /* Add some padding */
-            border: 1px solid #ddd; /* Add a grey border */
-            margin-top: 12px;
-            margin-bottom: 12px; /* Add some space below the input */
-        }
-    </style>
+    
 </head>
 <body class="menu-body">
     <div class="menu-whole-page">
@@ -91,7 +36,7 @@
                         <input type="date" id="end_date" name="end_date">
                     </div>
                     <div>
-                        <input type="text" id="myInput" placeholder="Search by Username" name="username">
+                        <input type="text" id="myInput" placeholder="Search Username" name="username">
                     </div>
                     <div class="apply-filters-btn">
                         <button type="submit">Apply Filters</button>
@@ -118,7 +63,7 @@
                     $end_date .= ' 23:59:59';
                 }
 
-                // Build the SQL query
+                //Join the required tables  
                 $sql = "
                     SELECT o.order_id, o.user_id, o.orderdate, o.status, oi.order_id AS oi_order_id, oi.product_name, oi.product AS oi_product_id, c.username
                     FROM orders o
@@ -181,6 +126,7 @@
             } else {
                 echo "<p>Please log in as manager to view this page.</p>";
             }
+            ob_end_flush(); // Flush output buffer
             ?>
         </div>
     </div>
