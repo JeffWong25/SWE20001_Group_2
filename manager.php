@@ -40,9 +40,19 @@
         WHERE staffid = '{$_SESSION["staff"]}'";
 
         $result = mysqli_query($dbconn, $sql);
-        $customer = $result->fetch_assoc();
+        $staff = $result->fetch_assoc();
     }
     ?>
+
+    <div id="welcome-container">
+    <?php if (isset($staff)): ?>
+        <div id="welcome-message">
+        <p></p>
+        <p>Welcome, <?= htmlspecialchars($staff["fname"]) ?>!</p>
+        </div>
+    <?php endif; ?>
+    </div>
+
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for ID, name, or price">
     <div class="menu-container">
     <?php

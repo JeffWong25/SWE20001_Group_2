@@ -17,6 +17,32 @@
         <a href="staffLogout.php" class="logout-button">Logout</a>
     </div>
 
+    <?php
+    session_start();
+    if (isset($_SESSION["staff"]) && $_SESSION["accesslevel"] === 'kitchen'){
+        require_once("settings.php");
+        $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
+        if (!$dbconn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+        $sql = "SELECT *  FROM staff
+        WHERE staffid = '{$_SESSION["staff"]}'";
+
+        $result = mysqli_query($dbconn, $sql);
+        $staff = $result->fetch_assoc();
+    }
+    ?>
+
+    <div id="welcome-container">
+    <?php if (isset($staff)): ?>
+        <div id="welcome-message">
+        <p>Welcome, <?= htmlspecialchars($staff["fname"]) ?>!</p>
+        <p>Orders are awaiting to be prepared!</p>
+        </div>
+    <?php endif; ?>
+    </div>
+
     <div class="menu-container">
         <div>
             <div class="menu-nav">
@@ -24,15 +50,6 @@
                 <a href="kitchen1.php">Prepared</a>
             </div>
             <?php
-                session_start();
-                require_once("settings.php");
-                
-                // Connection
-                $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
-                if (!$dbconn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
-
                 // Update order status if form is submitted
                 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['order_id']) && isset($_POST['new_status'])) {
                     $order_id = $_POST['order_id'];
