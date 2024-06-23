@@ -67,10 +67,11 @@
 
                 // SQL query without LIMIT clause for counting total rows
                 $count_query = "
-                    SELECT COUNT(*  ) AS total_orders
-                    FROM orders o
-                    WHERE o.status = 'COMPLETE'
-                ";
+                SELECT COUNT(*) AS total_orders
+                FROM orders o
+                LEFT JOIN customers c ON o.user_id = c.user_id
+                WHERE o.status = 'COMPLETE'
+            ";
 
                 // Append date range conditions only if dates are provided
                 if ($start_date && $end_date) {
