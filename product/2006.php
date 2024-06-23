@@ -67,7 +67,7 @@ addToCartButtons.forEach(button => {
         if (!$dbconn) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        $sql = "SELECT item_name, imgpath, `desc`, price, item_id FROM menu_items WHERE item_id = 2004";
+        $sql = "SELECT item_name, imgpath, `desc`, price, item_id FROM menu_items WHERE item_id = 2006";
         $result = mysqli_query($dbconn, $sql);
 
         echo "<table style='margin: 20px;'>";
