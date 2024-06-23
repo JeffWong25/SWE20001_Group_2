@@ -37,7 +37,7 @@
         }
 
         $sql = "SELECT *  FROM staff
-        WHERE staffid = '{$_SESSION["manager"]}'";
+        WHERE staffid = '{$_SESSION["staff"]}'";
 
         $result = mysqli_query($dbconn, $sql);
         $customer = $result->fetch_assoc();
