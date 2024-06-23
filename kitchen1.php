@@ -14,7 +14,7 @@
             <a><img src="images/vecteezy_burger-vector-logo-template-in-line-style-burger-simple-icon_7714606.png" id="logo" alt="BurgerBytes logo" width="80"></a>
             <h1>BurgerBytes Menu</h1>
         </div>
-        <a href="logout.php" class="logout-button">Logout</a>
+        <a href="staffLogout.php" class="logout-button">Logout</a>
     </div>
 
     <div class="menu-container">
@@ -75,7 +75,7 @@
                                     <td>{$row['user_id']}</td>
                                     <td>{$row['orderdate']}</td>
                                     <td>
-                                        <form method='POST' action='kitchen1    .php'>
+                                        <form method='POST' action='kitchen1.php'>
                                             <select name='new_status'>
                                                 <option value='PENDING' " . ($row['status'] == 'PENDING' ? 'selected' : '') . ">PENDING</option>
                                                 <option value='COMPLETE' " . ($row['status'] == 'COMPLETE' ? 'selected' : '') . ">COMPLETE</option>

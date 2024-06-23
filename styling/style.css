@@ -818,3 +818,107 @@ table td {
 .add-staff-form button:hover {
     background-color: #45a049;
 }
+
+/*view order history*/
+.order-history-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto; 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #fff; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filter-section form {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.filter-section form div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.apply-filters-btn {
+    margin-top: 10px;
+    text-align: center; 
+}
+
+.order-history-table {
+    width: 100%;
+    max-width: 100%; 
+    border-collapse: collapse;
+    background-color: white;
+    border: 1px solid #dddddd;
+}
+
+.order-history-table th,
+.order-history-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#start_date,
+#end_date,
+#myInput {
+    width: 55%; 
+    font-size: 16px; 
+    padding: 12px 20px;
+    border: 1px solid #ddd; 
+    margin-top: 12px;
+    margin-bottom: 12px; 
+}
+
+.apply-filters-btn button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #F81B15, #FDC400);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.apply-filters-btn button:hover {
+    background: linear-gradient(to bottom, #8B0000, #B22222);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.pagination a {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.pagination a.active, .pagination a:hover {
+    background-color: #f1f1f1;
+}

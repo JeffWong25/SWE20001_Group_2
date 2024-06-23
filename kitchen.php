@@ -25,14 +25,14 @@
             </div>
             <?php
                 session_start();
-                if (isset($_SESSION["staff"]) && $_SESSION["accesslevel"] === 'kitchen'){
-                    require_once("settings.php");     
-                    // Connection
-                    $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
-                    if (!$dbconn) {
-                        die("Connection failed: " . mysqli_connect_error());
-                    }
+                require_once("settings.php");
+                
+                // Connection
+                $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
+                if (!$dbconn) {
+                    die("Connection failed: " . mysqli_connect_error());
                 }
+
                 // Update order status if form is submitted
                 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['order_id']) && isset($_POST['new_status'])) {
                     $order_id = $_POST['order_id'];
@@ -75,7 +75,7 @@
                                     <td>{$row['user_id']}</td>
                                     <td>{$row['orderdate']}</td>
                                     <td>
-                                        <form method='POST' action='kitchen.php'>
+                                        <form method='POST' action='kitchen1.php'>
                                             <select name='new_status'>
                                                 <option value='PENDING' " . ($row['status'] == 'PENDING' ? 'selected' : '') . ">PENDING</option>
                                                 <option value='COMPLETE' " . ($row['status'] == 'COMPLETE' ? 'selected' : '') . ">COMPLETE</option>
