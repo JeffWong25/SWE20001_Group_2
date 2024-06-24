@@ -24,6 +24,14 @@
                 <a href="ManagerOrder1.php">Complete</a>
                 <a href="ManagerOrder2.php">Cancelled</a>
             </div>
+            <div class="sidebar">
+                <a href="manager.php">View Menu</a>
+                <a href="additem.php">Add New Item</a>
+                <a href="viewOrderHistory.php">Order History</a>
+                <a href="managestaff.php">Manage Staff</a>
+                <a href="addstaff.php">Add Staff</a>
+                <a href="ManagerOrder.php">View Orders</a>
+            </div>
             <?php
                 session_start();
                 require_once("settings.php");
