@@ -11,6 +11,12 @@ if (isset($_SESSION["staff"]) && $_SESSION["accesslevel"] === 'cashier'){
 // Fetch orders from the database
 $sql = "SELECT order_id, user_id, total_amt, orderdate, status FROM orders";
 $result = $dbconn->query($sql);
+
+$sql = "SELECT *  FROM staff
+WHERE staffid = '{$_SESSION["staff"]}'";
+
+$result2 = mysqli_query($dbconn, $sql);
+$staff = $result2->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +37,16 @@ $result = $dbconn->query($sql);
             </div>
             <a href="staffLogout.php" class="logout-button">Logout</a>
         </div>
+
+        <div id="welcome-container">
+        <?php if (isset($staff)): ?>
+            <div id="welcome-message">
+            <p>Welcome, <?= htmlspecialchars($staff["fname"]) ?>!</p>
+            <p>Orders are ready to be picked up!</p>
+            </div>
+        <?php endif; ?>
+        </div>
+
         <div>
             <h1><center>Order List</center></h1>
             <table class="table_font">

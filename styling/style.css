@@ -819,6 +819,7 @@ table td {
     background-color: #45a049;
 }
 
+
 /*view order history*/
 .order-history-container {
     display: flex;
@@ -826,12 +827,12 @@ table td {
     align-items: center;
     width: 100%;
     max-width: 800px;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: #fff; 
-    padding: 20px; 
-    border-radius: 8px; 
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -858,12 +859,12 @@ table td {
 
 .apply-filters-btn {
     margin-top: 10px;
-    text-align: center; 
+    text-align: center;
 }
 
 .order-history-table {
     width: 100%;
-    max-width: 100%; 
+    max-width: 100%;
     border-collapse: collapse;
     background-color: white;
     border: 1px solid #dddddd;
@@ -879,12 +880,12 @@ table td {
 #start_date,
 #end_date,
 #myInput {
-    width: 55%; 
-    font-size: 16px; 
+    width: 55%;
+    font-size: 16px;
     padding: 12px 20px;
-    border: 1px solid #ddd; 
+    border: 1px solid #ddd;
     margin-top: 12px;
-    margin-bottom: 12px; 
+    margin-bottom: 12px;
 }
 
 .apply-filters-btn button {
