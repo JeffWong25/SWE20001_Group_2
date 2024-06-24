@@ -11,14 +11,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    $sql = "INSERT INTO cart (menu_items, add_cart_date, purchaser) 
-SELECT '$item_id', CURRENT_TIMESTAMP, user_id FROM customers WHERE email = '$customer_email';
-";
+    // Fetch the user_id based on the provided email
+    $sql = "SELECT user_id FROM customers WHERE email = '$customer_email'";
+    $result = mysqli_query($dbconn, $sql);
+    
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        $user_id = $row['user_id'];
 
-    if (mysqli_query($dbconn, $sql)) {
-        echo "Item added to cart successfully";
+        // Insert the cart item
+        $sql_insert = "INSERT INTO cart (menu_items, add_cart_date, comment, purchaser) 
+                       VALUES ('$item_id', CURRENT_TIMESTAMP, '$preference', '$user_id')";
+
+        if (mysqli_query($dbconn, $sql_insert)) {
+            echo "Item added to cart successfully";
+        } else {
+            echo "Error: " . $sql_insert . "<br>" . mysqli_error($dbconn);
+        }
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($dbconn);
+        echo "Error: Unable to find customer with the provided email.";
     }
 
     mysqli_close($dbconn);
