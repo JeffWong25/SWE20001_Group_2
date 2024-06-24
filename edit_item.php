@@ -36,6 +36,35 @@
                 } else {
                     echo "<p class='error-message'>Error updating item: " . mysqli_error($dbconn) . "</p>";
                 }
+                if (isset($_FILES['imgpath']) && $_FILES['imgpath']['error'] == 0) {
+            $imgpath = $_FILES['imgpath'];
+            // Handle image upload
+            $target_dir = "images/";
+            $target_file = $target_dir . basename($imgpath["name"]);
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+            // Check if file is an image
+            $check = getimagesize($imgpath["tmp_name"]);
+            if($check === false) {
+                die("<div class='error-message'>File is not an image <a href='additem.php'>Readd item</a></div>");
+            }
+            // Check file size (5MB max)
+            if ($imgpath["size"] > 5000000) {
+                die("<div class='error-message'>Image is too large, maximum size is 5MB <a href='additem.php'>Readd item</a></div>");
+            }
+            // Allow certain file formats
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+                die("<div class='error-message'>Only JPG, JPEG, PNG & GIF files are allowed <a href='additem.php'>Readd item</a></div>");
+            }
+            // Move file to target directory
+            if (!move_uploaded_file($imgpath["tmp_name"], $target_file)) {
+                die("<div class='error-message'>An error occured while uploading your file <a href='additem.php'>Readd item</a></div>");
+            }
+
+            //concatenate
+            $imgpath = "images/" . basename($imgpath["name"]);
+        }else {
+            die("<div class='error-message'>No file was uploaded or there was an upload error: " . [$error_code] . "</div>");
+        }
             }
 
             if (isset($_GET['item_id'])) {
@@ -63,8 +92,8 @@
             <textarea id="edit-desc" name="desc" required><?php echo $item['desc']; ?></textarea><br>
             <label for="edit-price">Price:</label>
             <input type="text" id="edit-price" name="price" value="<?php echo $item['price']; ?>" required><br>
-            <label for="edit-imgpath">Image Path:</label>
-            <input type="text" id="edit-imgpath" name="imgpath" value="<?php echo $item['imgpath']; ?>" required><br>
+            <label for="edit-imgpath">Image:</label>
+            <input type="file" id="imgpath" name="imgpath" accept="image/*" required><br>
             <button type="submit">Update</button>
             <a href="manager.php">Cancel</a>
         </form> 
