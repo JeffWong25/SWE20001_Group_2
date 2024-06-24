@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BurgerBytes Manage Staff</title>
     <link rel="stylesheet" href="styling/style.css">
-    <link rel="stylesheet2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="scripts/deletestaff.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="scripts/deleteStaff.js"></script>
     <script src="scripts/search_staff.js"></script>
 </head>
 <body class="menu-body">
@@ -34,7 +34,7 @@
             die("Connection failed: " . mysqli_connect_error());
         }
 
-        $sql = "SELECT *  FROM staff WHERE staffid = '{$_SESSION["manager"]}'";
+        $sql = "SELECT * FROM staff WHERE staffid = '{$_SESSION["manager"]}'";
         $result = mysqli_query($dbconn, $sql);
         $customer = $result->fetch_assoc();
     }
@@ -81,7 +81,6 @@
         echo "</form>";
         mysqli_close($dbconn);
     ?>
-
     </div>
     <footer class="menu-footer">
         <div class="menu-footer-content">
@@ -97,10 +96,10 @@
     <!-- The Modal -->
     <div id="confirmationModal" class="modal">
         <div class="modal-content">
-            <span class="close-button" onclick="closeModal()">&times;</span>
+            <span class="close-button" onclick="closeModal('confirmationModal')">&times;</span>
             <p>Are you sure you want to delete the selected staff members?</p>
             <button id="confirmDelete" class="confirm-button" onclick="confirmDelete()">Confirm</button>
-            <button id="cancelDelete" class="cancel-button" onclick="closeModal()">Cancel</button>
+            <button id="cancelDelete" class="cancel-button" onclick="closeModal('confirmationModal')">Cancel</button>
         </div>
     </div>
 
@@ -112,5 +111,7 @@
             <button class="cancel-button" onclick="closeModal('selectModal')">Close</button>
         </div>
     </div>
+
+    <script src="scripts/deleteStaff.js"></script>
 </body>
 </html>
