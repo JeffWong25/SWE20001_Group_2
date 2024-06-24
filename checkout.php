@@ -94,7 +94,7 @@ if (!isset($_SESSION['customer'])) {
         <form id="payment-form" action="cash.php" method="POST">
             <label>
                 <input type="radio" name="payment_method" value="cash" required>
-                Cash on Cashier
+                Pay at counter
             </label><br>
             <!-- <label>
                 <input type="radio" name="payment_method" value="maybank">
