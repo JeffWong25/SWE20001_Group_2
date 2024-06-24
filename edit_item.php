@@ -63,6 +63,8 @@
             <textarea id="edit-desc" name="desc" required><?php echo $item['desc']; ?></textarea><br>
             <label for="edit-price">Price:</label>
             <input type="text" id="edit-price" name="price" value="<?php echo $item['price']; ?>" required><br>
+            <label for="edit-price">Image:</label>
+             <input type="text" id="edit-imgpath" name="imgpath" value="<?php echo $item['imgpath']; ?>" required><br>
             <button type="submit">Update</button>
             <a href="manager.php">Cancel</a>
         </form> 
