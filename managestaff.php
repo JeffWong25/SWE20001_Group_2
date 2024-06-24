@@ -111,7 +111,5 @@
             <button class="cancel-button" onclick="closeModal('selectModal')">Close</button>
         </div>
     </div>
-
-    <script src="scripts/deleteStaff.js"></script>
 </body>
 </html>
