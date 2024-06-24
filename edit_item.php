@@ -15,88 +15,44 @@
             <h1>Edit Product</h1>
         </div>
     </div>
-    <?php
-require_once("settings.php");
-$dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
-if (!$dbconn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+     <?php
+            require_once("settings.php");
+            $dbconn = @mysqli_connect($host, $user, $pwd, $sql_db);
+            if (!$dbconn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
 
-// Check if form was submitted to update an item
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $item_id = $_POST['item_id'];
-    $item_name = $_POST['item_name'];
-    $desc = $_POST['desc'];
-    $price = $_POST['price'];
-    $imgpath = $_POST['existing_imgpath'];
+            // Check if form was submitted to update an item
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $item_id = $_POST['item_id'];
+                $item_name = $_POST['item_name'];
+                $desc = $_POST['desc'];
+                $price = $_POST['price'];
+                $imgpath = $_POST['imgpath'];
+                $update_sql = "UPDATE menu_items SET item_name = '$item_name', `desc` = '$desc', price = '$price', imgpath = '$imgpath' WHERE item_id = '$item_id'";
+            if (mysqli_query($dbconn, $update_sql)) {
+                    header("Location: manager.php");
+                    exit;
+                } else {
+                    echo "<p class='error-message'>Error updating item: " . mysqli_error($dbconn) . "</p>";
+                }
+            }
 
-    // Handle image upload if a new file is provided
-    if (isset($_FILES['imgpath']) && $_FILES['imgpath']['error'] == 0) {
-        $imgpath = $_FILES['imgpath'];
-        // Handle image upload
-        $target_dir = "images/";
-        $target_file = $target_dir . basename($imgpath["name"]);
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-        // Check if file is an image
-        $check = getimagesize($imgpath["tmp_name"]);
-        if ($check === false) {
-            die("<div class='error-message'>File is not an image <a href='additem.php'>Readd item</a></div>");
-        }
-
-        // Check file size (5MB max)
-        if ($imgpath["size"] > 5000000) {
-            die("<div class='error-message'>Image is too large, maximum size is 5MB <a href='additem.php'>Readd item</a></div>");
-        }
-
-        // Move file to target directory
-        if (!move_uploaded_file($imgpath["tmp_name"], $target_file)) {
-            die("<div class='error-message'>An error occurred while uploading your file <a href='additem.php'>Readd item</a></div>");
-        }
-
-        // Update imgpath variable to store the relative path
-        $imgpath = "images/" . basename($imgpath["name"]);
-    } else {
-        // If no file is uploaded, use the existing imgpath
-        $imgpath = $_POST['existing_imgpath'];
-    }
-
-    // Update the database with the new item details
-    $update_sql = "UPDATE menu_items SET item_name = ?, `desc` = ?, price = ?, imgpath = ? WHERE item_id = ?";
-    $stmt = $dbconn->prepare($update_sql);
-    $stmt->bind_param("ssdsi", $item_name, $desc, $price, $imgpath, $item_id);
-
-    if ($stmt->execute()) {
-        header("Location: manager.php");
-        exit;
-    } else {
-        echo "<p class='error-message'>Error updating item: " . mysqli_error($dbconn) . "</p>";
-    }
-
-    $stmt->close();
-}
-
-if (isset($_GET['item_id'])) {
-    $item_id = $_GET['item_id'];
-    $sql = "SELECT item_id, item_name, imgpath, `desc`, price FROM menu_items WHERE item_id = ?";
-    $stmt = $dbconn->prepare($sql);
-    $stmt->bind_param("i", $item_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if (!$result) {
-        die("Error fetching item: " . mysqli_error($dbconn));
-    }
-    $item = $result->fetch_assoc();
-    if (!$item) {
-        die("No item found with ID $item_id");
-    }
-    $stmt->close();
-} else {
-    die("No item ID provided");
-}
-
-mysqli_close($dbconn);
-?>
+            if (isset($_GET['item_id'])) {
+                $item_id = $_GET['item_id'];
+                $sql = "SELECT item_id, item_name, imgpath, `desc`, price FROM menu_items WHERE item_id = '$item_id'";
+                $result = mysqli_query($dbconn, $sql);
+                if (!$result) {
+                    die("Error fetching item: " . mysqli_error($dbconn));
+                }
+                $item = mysqli_fetch_assoc($result);
+                if (!$item) {
+                    die("No item found with ID $item_id");
+                }
+            } else {
+                die("No item ID provided");
+            }
+        ?>
     <div class="edit_product_page">
          <form id="edit-form" method="POST">
             <h2>Edit Menu Item</h2>
@@ -107,8 +63,8 @@ mysqli_close($dbconn);
             <textarea id="edit-desc" name="desc" required><?php echo $item['desc']; ?></textarea><br>
             <label for="edit-price">Price:</label>
             <input type="text" id="edit-price" name="price" value="<?php echo $item['price']; ?>" required><br>
-            <label for="edit-imgpath">Image:</label>
-            <input type="file" id="imgpath" name="imgpath" accept="image/*" required><br>
+            <label for="edit-imgpath">Image Path:</label>
+            <input type="text" id="edit-imgpath" name="imgpath" value="<?php echo $item['imgpath']; ?>" required><br>
             <button type="submit">Update</button>
             <a href="manager.php">Cancel</a>
         </form> 
